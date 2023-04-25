@@ -30,6 +30,18 @@ Rapier_ = ["Aprentice Rapier", "Ironstinger", "Crucible Rapier", "Krystreza"]
 """ Lucas = Player("input","input","input")
 print(Lucas.health) """
 
+name = input("What is your name? ")
+y = input("What is your weapon class?(Light, Medium, Heavy) ").capitalize()
+if y == "Light":
+    Lweapon = input("Dagger, Rapier, or Fist? ").capitalize()
+    if Lweapon == "Rapier":
+        Rapier1 = input("What type of Rapier? ")
+if y == "Heavy":
+    Hweapon = input("Ghammer, Gsword, or Gaxe? ").capitalize()
+if y == "Medium":
+    Mweapon = input("Sword, Spear, or Rifle? ").capitalize()    
+z = input("What oath are you going for? ").capitalize()
+
 class Light(Player):
 
     def __init__( self, name, health, damage, Rapier, Fist, Dagger):
@@ -37,7 +49,30 @@ class Light(Player):
         self.Rapier = Rapier
         self.Dagger = Dagger
         self.Fist = Fist
-
+def lightdmg_():
+    if Rapier1 in Rapier_:
+        if Rapier1 == "Ironstinger":
+            Ironstinger = (f"Damage: {damage + 5}")
+            print (Ironstinger)
+        if Rapier1 == "Kyrstreeza":
+            Kyrstreeza = (f"Damage: {damage + 5}")
+            print (Kyrstreeza)   
+lightdmg_()
+def LightStat():
+    Lucas=Light( name, health, damage, Rapier_, "Apprentice Rapier", "Flamekeeper Cestus")
+    print(f"Name:  {Lucas.name}")
+    print(f"Health: {Lucas.health}")
+    if Lweapon == "Rapier": 
+        lightdmg_()
+    if Lweapon == "Dagger":
+        print(Lucas.Dagger)
+        print(f"Damage: {damage + 6}")
+    if Lweapon == "Fist":
+        print(Lucas.Fist)
+        print(f"Damage: {damage + 4}")
+    if z in v:
+        print(f"Oath: {z}")
+LightStat()
 class Medium(Player):
 
     def __init__(self, name, health, Sword, Spear, Rifle):
@@ -55,15 +90,7 @@ class Heavy(Player):
 
 
 
-name = input("What is your name? ")
-y = input("What is your weapon class?(Light, Medium, Heavy) ").capitalize()
-if y == "Light":
-    Lweapon = input("Dagger, Rapier, or Fist? ").capitalize()
-if y == "Heavy":
-    Hweapon = input("Ghammer, Gsword, or Gaxe? ").capitalize()
-if y == "Medium":
-    Mweapon = input("Sword, Spear, or Rifle? ").capitalize()    
-z = input("What oath are you going for? ").capitalize()
+
 
 
 
@@ -83,34 +110,8 @@ if y == "Heavy":
         print(z)
 
 if y == "Light":  
+    LightStat()
 
-
-    Lucas=Light( name, health, damage, Rapier_, "Apprentice Rapier", "Flamekeeper Cestus")
-    print(f"Name:  {Lucas.name}")
-    print(f"Health: {Lucas.health}")
-    if Lweapon == "Rapier": 
-        Rapier1 = input("What type of Rapier? ")
-        print(Lucas.lightdmg_)
-    if Lweapon == "Dagger":
-        print(Lucas.Dagger)
-        print(f"Damage: {damage + 6}")
-    if Lweapon == "Fist":
-        print(Lucas.Fist)
-        print(f"Damage: {damage + 4}")
-    if z in v:
-        print(f"Oath: {z}")
-    
-def lightdmg_():
-    if Rapier1 in Rapier_:
-        if Rapier1 == "Ironstinger":
-            Ironstinger = (f"Damage: {damage + 5}")
-            print (Ironstinger)
-        if Rapier1 == "Kyrstreeza":
-            Kyrstreeza = (f"Damage: {damage + 5}")
-            print (Kyrstreeza)
-
-            
-lightdmg_()
 
 if y == "Medium":
     Lucas=Medium( name, "150", "Vigil Longsword", "Irontusk", "Ironblunderbuss")
@@ -124,3 +125,6 @@ if y == "Medium":
         print(Lucas.Rifle)
     if z in v:
         print(z)
+
+
+
