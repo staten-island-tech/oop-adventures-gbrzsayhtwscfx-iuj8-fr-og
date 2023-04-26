@@ -17,6 +17,7 @@ Dagger_ = ["Canor Fang", "Tanto"]
 
 name = input("What is your name? ")
 y = input("What is your weapon class?(Light, Medium, Heavy) ").capitalize()
+z = input("Oath/Class? ")
 while y == "Light":
     Lweapon = input("Dagger, Rapier, or Fist? ").capitalize()
     if Lweapon == "Rapier":
@@ -32,16 +33,15 @@ while y == "Light":
         if rroll == "n":
             print(f"Rolls used: {rroll_}")
             break
-            
-
-
-    if Lweapon == "Dagger":
-        Dagger1 = input("What type of Dagger? ").capitalize()
-if y == "Heavy":
-    Hweapon = input("Ghammer, Gsword, or Gaxe? ").capitalize()
-if y == "Medium":
-    Mweapon = input("Sword, Spear, or Rifle? ").capitalize()    
-z = input("What oath are you going for? ").capitalize()
+ 
+def LightStat():
+    Lucas=Light( name, health, damage, Rapier_, "Iron cestus", Dagger_)
+    print(f"Name:  {Lucas.name}")
+    print(f"Health: {Lucas.health}")
+    lightdmg_()
+    if z in v:
+        print(f"Oath: {z}")
+LightStat()
 
 class Light(Player):
 
@@ -68,24 +68,8 @@ def lightdmg_():
             Apprentice_Rapier = (f"Damage: {damage + 15.9}")
             print (Apprentice_Rapier)
             print(lightwep)
-
-
-    if "Dagger1" in Dagger_:
-        if Dagger1 == "Canor Fang":
-            Canor_Fang = (f"Damage: {damage + 15.2}")
-            print (Canor_Fang)
-        if Dagger1 in Dagger_:
-            Tanto = (f"Damage: {damage + 20.5}")
-            print (Tanto)
 lightdmg_()
 
-def LightStat():
-    Lucas=Light( name, health, damage, Rapier_, "Iron cestus", Dagger_)
-    print(f"Name:  {Lucas.name}")
-    print(f"Health: {Lucas.health}")
-    lightdmg_()
-    if z in v:
-        print(f"Oath: {z}")
 """     if Lweapon == "Rapier": 
         lightdmg_()
     if Lweapon == "Dagger":
@@ -95,4 +79,3 @@ def LightStat():
         print(Lucas.Fist)
         print(f"Damage: {damage + 4}") """
 
-LightStat()
