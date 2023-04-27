@@ -29,15 +29,13 @@ class Light(Player):
             Lweapon = input("Dagger, Rapier, or Fist? ").capitalize()
             if Lweapon == "Rapier":
                 lightwep = random.choice(self.Rapier_)
+                self.lightwep = lightwep
                 print(lightwep)
-                rroll_ = input("Do you wish to reroll Rapier? y/n ")
-                if rroll_ == "Y".capitalize:
-                    print(lightwep)
-                if rroll_ == "N".capitalize:
-                    print(lightwep)
-                    break
+                break
             if weapon_ == "Medium" and "Heavy":
                 break
+
+
 
 
 
@@ -45,9 +43,10 @@ class Light(Player):
 Player_ = Player("id","name",300,5,0,"weptype")
 Player_.name1()
 Player_.wep_class
-print(Player_.name)
 Player1 = Light("name","health","damage","rroll","weptype","weapon")
 Player1.ask_weapon()
+print("_________________________________________________________________________________________________________________________________________________________________________________________________________________________________")
 
-
+print(Player_.name)
+print(Player1.lightwep)
 
