@@ -1,6 +1,7 @@
 import random
 
 class Player:
+    Stats = []
     def __init__(self, id, name, health, damage, rroll, weptype):
         self.id = id
         self.name = name
@@ -12,13 +13,18 @@ class Player:
     def name1(self):
         name_ = input("What is your name? ")
         self.name = name_
+        self.Stats.append(self.name)
     def wep_class(self):
         wep_ = input("What weapon class(Light, Medium, Heavy)? ").capitalize
         self.weptype = wep_
+        self.Stats.append(self.weptype)
+    def print_player_stats(self):
+        print(self.Stats)
 
 
-class Light(Player):
-    Rapier_ = ["Aprentice Rapier", "Ironstinger", "Crucible Rapier", "Krystreza"]
+class Weapon(Player):
+    Chance = [1,2,3,4,5,6,7,8,9,10]
+    Rapier_ = ["Aprentice Rapier", "Ironstinger", "Crucible Rapier", "Krystreeza"]
     def __init__(self, name, health, damage, rroll, weptype, lightwep):
         super(). __init__(self, name, health, damage, rroll, weptype)
         self.lightwep = lightwep
@@ -28,16 +34,22 @@ class Light(Player):
         while weapon_ == "Light":
             Lweapon = input("Dagger, Rapier, or Fist? ").capitalize()
             if Lweapon == "Rapier":
-                lightwep = random.choice(self.Rapier_)
-                print(lightwep)
-                rroll_ = input("Do you wish to reroll Rapier? y/n ")
-                if rroll_ == "Y".capitalize:
-                    print(lightwep)
-                if rroll_ == "N".capitalize:
-                    print(lightwep)
+                chance_ = random.choice(self.Chance)
+                if chance_ == 1 or 2 or 3 or 4:
+                    self.Stats.append('Ironstinger')
+                    break
+                if chance_ == 5 or 6 or 7:
+                    print("Aprentice Rapier")
+                    break
+                if chance_ == 8 or 9:
+                    print("Crucible Rapier")
+                    break
+                if chance_ == 10:
+                    print("Krystreeza")
                     break
             if weapon_ == "Medium" and "Heavy":
                 break
+
 
 
 
@@ -46,8 +58,8 @@ Player_ = Player("id","name",300,5,0,"weptype")
 Player_.name1()
 Player_.wep_class
 print(Player_.name)
-Player1 = Light("name","health","damage","rroll","weptype","weapon")
+Player1 = Weapon("name","health","damage","rroll","weptype","weapon")
 Player1.ask_weapon()
-
+Player_.print_player_stats()
 
 
