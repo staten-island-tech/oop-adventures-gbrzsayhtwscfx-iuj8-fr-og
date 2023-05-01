@@ -25,27 +25,33 @@ class Player:
 class Weapon(Player):
     Chance = [1,2,3,4,5,6,7,8,9,10]
     Rapier_ = ["Aprentice Rapier", "Ironstinger", "Crucible Rapier", "Krystreeza"]
+    
     def __init__(self, name, health, damage, rroll, weptype, lightwep):
         super(). __init__(self, name, health, damage, rroll, weptype)
         self.lightwep = lightwep
         
     def ask_weapon(self):
+        Ironstinger_ = [1,2,3,4]
+        Aprentice_Rapier_ = [5,6,7]
+        Crucible_Rapier = [8,9]
+        Krystreeza_ = [10]
         weapon_ = input("What is your weapon class?(Light, Medium, Heavy) ").capitalize()
         while weapon_ == "Light":
             Lweapon = input("Dagger, Rapier, or Fist? ").capitalize()
             if Lweapon == "Rapier":
                 chance_ = random.choice(self.Chance)
-                if chance_ == 1:
-                    self.Stats.append('Ironstinger')
+                print(chance_)
+                if chance_ in Ironstinger_:
+                    self.Stats.append("Weapon: Ironstinger")
                     break
-                if chance_ == 5:
-                    self.Stats.append('Aprentice Rapier')
+                elif chance_ in Aprentice_Rapier_:
+                    self.Stats.append("Weapon : Aprentice Rapier")
                     break
-                if chance_ == 8 or 9:
-                    self.Stats.append('Crucible Rapier')
+                if  chance_ in Crucible_Rapier:
+                    self.Stats.append("Weapon: Crucible Rapier")
                     break
-                if chance_ == 10:
-                    self.Stats.append('Krystreeza')
+                if chance_ in Krystreeza_:
+                    self.Stats.append("Weapon: Krystreeza")
                     break
             if weapon_ == "Medium" and "Heavy":
                 break
