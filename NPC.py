@@ -14,14 +14,15 @@ numnpc = [3, 4, 5]
 rnpc = random.choice(numnpc)
 if rnpc == 3:
     print("3 enemies has spawned")
-    print(HP)
+    Jeff = HP
 
-    
+numstart = [1,2]
+
 
     numattack = [1, 2, 3, 4]
     rattack = random.choice(numattack)
     if rattack == 1:
-        print("You ")        
+        print("You "        
     if rattack == 2:
         print("")
     if rattack == 3:
@@ -29,11 +30,11 @@ if rnpc == 3:
     if rattack == 4:
         print("")
 
-    if HP <= 0:
+    if Jeff <= 0:
         print(f"you have defeated {rnumnpcnames}")
         print(f"You are now fighting {rnumnpcnames}")
 
-         numattack = [1, 2, 3, 4]
+        numattack = [1, 2, 3, 4]
         rattack = random.choice(numattack)
         if rattack == 1:
             print("You ")        
