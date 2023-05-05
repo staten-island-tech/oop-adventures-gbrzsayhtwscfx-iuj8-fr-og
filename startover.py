@@ -1,26 +1,27 @@
-HP = 250
-
-
-
-attack = 10
-
-PlayerHp = 100
-
-npcHP = 250
-
-
-
 import random 
-numnpc = [3, 4, 5]
-rnpc = random.choice(numnpc)
-if rnpc == 3:
-    print("3 enemies has spawned")
-    Jeff = HP
+numstart = [1,2,3,4,5]
+numstart_ = random.choice(numstart)
+class Enemys:
+    def __init__(self, id, name, health):
+        numnpc = [5, 6, 7, 8]
+        rnpc = random.choice(numnpc)
+        self.id = id
+        self.name = name
+        self.health = health
 
-numstart = [1,2]
-numstart = random.choice(numstart)
+        def NPCS(self):
+            if rnpc == 5:
+                health1 = 100
+                health2 = 100
+                health3 = 150
+                health4 = 100
+                health5 = 200
+                print("5 enemies has spawned")
+                Choice1 =input("Do you wish to fight or leave? ")
+            
 
-if numstart == 1:
+
+""" if numstart == 1:
     print("you make the first move")
 
 #not working on this now
@@ -265,3 +266,4 @@ while numstart == 2:
             if npcHP <= 0:
                 print("you have defeated your enemy")
                 break
+ """
