@@ -46,23 +46,22 @@ class Weapon(Player):
         Flamekeeper_Cestus = [9,10]
         # Light weps
 
-        Sword1 = [1,2,3]
-        Sword2 = [5,6,7]
-        Sword3 = [8,9]
-        Sword4 = [10]
-        Sword5 = [4]
+        Messer = [1,2,3]
+        Shotel = [5,6,7]
+        Serpents_edge = [8,9]
+        Shattered_katana = [10]
+        Alloyed_Falchion = [4]
 
-        Spear1 = [1,2,3,4]
-        Spear2 = [5,6,7]
-        Spear3 = [8,9]
-        Spear4 = [10]
+        Iron_Spear = [1,2,3,4]
+        Ritual_Spear = [5,6,7]
+        True_Seraphs_Spear = [8,9]
+        Rifle_Spear = [10]
 
-        Club1 = [1,2,3,4,5,6,7]
-        Club2 = [8,9,10]
+        Mace = [1,2,3,4,5,6,7]
+        Sacred_Hammer = [8,9,10]
 
-        Rifle1 = [1,2,3,4,5,6]
-        Rifle2 = [7,8,9]
-        Rifle3 = [10]
+        Rosens_Peacemaker = [1,2,3,4,5,6]
+        Iron_Blunderbuss = [7,8,9]
         # Medium weps
 
         Greatsword1 = [1,2,3,4,5]
@@ -70,8 +69,8 @@ class Weapon(Player):
         Greatsword3 = [8,9]
         Greatsword4 = [10]
 
-        Greataxe1 = [1,2,3,4]
-        Greataxe2 = [5,6,7]
+        Battleaxe = [1,2,3,4]
+        Nightaxe = [5,6,7]
         Greataxe3 = [8,9]
         Greataxe4 = [10]
 
@@ -132,51 +131,49 @@ class Weapon(Player):
             chance_ = random.choice(self.Chance)
             print(chance_)
             if Mweapon == "Sword":
-                if chance_ in Sword1:
-                    self.Stats.append("Weapon: Sword1")
+                if chance_ in Messer:
+                    self.Stats.append("Weapon: Messer")
                     break
-                if chance_ in Sword2:
-                    self.Stats.append("Weapon: Sword2")
+                if chance_ in Shotel:
+                    self.Stats.append("Weapon: Shotel")
                     break
-                if chance_ in Sword3:
-                    self.Stats.append("Weapon: Sword3")
+                if chance_ in Serpents_edge:
+                    self.Stats.append("Weapon: Serpents Edge")
                     break
-                if chance_ in Sword4:
-                    self.Stats.append("Weapon: Sword4")
+                if chance_ in Shattered_katana:
+                    self.Stats.append("Weapon: Shattered Katana")
                     break
-                if chance_ in Sword5:
-                    self.Stats.append("Weapon: Sword5")
+                if chance_ in Alloyed_Falchion:
+                    self.Stats.append("Weapon: Alloyed Falchion")
                     break
             if Mweapon == "Spear":
-                if chance_ in Spear1:
-                    self.Stats.append("Weapon: Spear1")
+                if chance_ in Iron_Spear:
+                    self.Stats.append("Weapon: Iron Spear")
                     break
-                if chance_ in Spear2:
-                    self.Stats.append("Weapon: Spear2")
+                if chance_ in Ritual_Spear:
+                    self.Stats.append("Weapon: Ritual Spear")
                     break
-                if chance_ in Spear3:
-                    self.Stats.append("Weapon: Spear3")
+                if chance_ in True_Seraphs_Spear:
+                    self.Stats.append("Weapon: True Seraphs Spear")
                     break
-                if chance_ in Spear4:
-                    self.Stats.append("Weapon: Spear4")
+                if chance_ in Rifle_Spear:
+                    self.Stats.append("Weapon: Rifle Spear")
                     break
             if Mweapon == "Club":
-                if chance_ in Club1:
-                    self.Stats.append("Weapon: Club1")
+                if chance_ in Mace:
+                    self.Stats.append("Weapon: Mace")
                     break
-                if chance_ in Club2:
-                    self.Stats.append("Weapon: Club2")
+                if chance_ in Sacred_Hammer:
+                    self.Stats.append("Weapon: Sacred Hammer")
                     break
             if Mweapon == "Rifle":
-                if chance_ in Rifle1:
-                    self.Stats.append("Weapon: Rifle1")
+                if chance_ in Rosens_Peacemaker:
+                    self.Stats.append("Weapon: Rosens Peacemaker")
                     break
-                if chance_ in Rifle2:
-                    self.Stats.append("Weapon: Rifle2")
+                if chance_ in Iron_Blunderbuss:
+                    self.Stats.append("Weapon: Iron Blunderbuss")
                     break
-                if chance_ in Rifle3:
-                    self.Stats.append("Weapon: Rifle3")
-                    break
+                
         while weapon_ == "Heavy":
             Hweapon = input("Greatsword, Greataxe, or Greathammer? ").capitalize()
             chance_ = random.choice(self.Chance)
@@ -195,10 +192,10 @@ class Weapon(Player):
                     self.Stats.append("Weapon: Greatsword4")
                     break
             if Hweapon == "Greataxe":
-                if chance_ in Greataxe1:
-                    self.Stats.append("Weapon: Greataxe1")
+                if chance_ in Battleaxe:
+                    self.Stats.append("Weapon: Battleaxe")
                     break
-                if chance_ in Greataxe2:
+                if chance_ in Nightaxe:
                     self.Stats.append("Weapon: Greataxe2")
                     break
                 if chance_ in Greataxe3:
