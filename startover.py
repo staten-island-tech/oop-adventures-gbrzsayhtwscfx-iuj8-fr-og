@@ -1,23 +1,52 @@
 import random 
-numstart = [1,2,3,4,5]
-numstart_ = random.choice(numstart)
+PlayerHP = 100
+PlayerDMG = 20
+
+
 class Enemys:
-    def __init__(self, id, name, health):
-        numnpc = [5, 6, 7, 8]
-        rnpc = random.choice(numnpc)
+    def __init__(self, id, name):
+
         self.id = id
         self.name = name
-        self.health = health
 
-        def NPCS(self):
-            if rnpc == 5:
-                health1 = 100
-                health2 = 100
-                health3 = 150
-                health4 = 100
-                health5 = 200
-                print("5 enemies has spawned")
-                Choice1 =input("Do you wish to fight or leave? ")
+    def SKnightattack(self):
+        PlayerHP = 100
+        Attacktyp = [1,2,3,4,5,6,7,8,9,10]
+        Attacktyp_ = random.choice(Attacktyp)
+        attack = [1,2,3,4,5,6]
+        magic = [7,8,9]
+        heal = [10]
+        if  Attacktyp_ in attack:
+        # Attack
+            PlayerHP -10
+        if  Attacktyp_ in magic:
+            #Magic
+            PlayerHP - 10
+        if Attacktyp in heal:
+            print("Attack missed")
+    SKnightattack()
+            
+
+    def Fight1(self):
+        numnpc = [5, 6, 7, 8]
+        rnpc = random.choice(numnpc)
+        whostart = [1,2,3,4,5]
+        whostart_ = random.choice(whostart)
+        NPCstart = [1,2,3]
+        Playerstart = [4,5]
+        if rnpc == 5:
+            print("5 Sand Knights have spawned!!! ")
+            Choice1 =input("Do you wish to fight or leave? ")
+            while Choice1 == "fight":
+                if whostart_ in NPCstart:
+                    SKnightattack()
+                if whostart_ in Playerstart:
+                    print("WIP")
+                else:
+                    break
+
+Fight_ = Enemys("self", "id", "name")
+Fight1()
             
 
 
