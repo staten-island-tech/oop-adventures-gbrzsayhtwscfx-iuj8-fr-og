@@ -64,15 +64,15 @@ class Weapon(Player):
         Iron_Blunderbuss = [7,8,9]
         # Medium weps
 
-        Greatsword1 = [1,2,3,4,5]
-        Greatsword2 = [6,7]
-        Greatsword3 = [8,9]
-        Greatsword4 = [10]
+        Avenger = [1,2,3,4,5]
+        Zweihander = [6,7]
+        Darkalloy_Greatsword = [8,9]
+        RailBlade = [10]
 
         Battleaxe = [1,2,3,4]
         Nightaxe = [5,6,7]
-        Greataxe3 = [8,9]
-        Greataxe4 = [10]
+        Alloyed_Canorian_Axe = [8,9]
+        Enforcers_Axe = [10]
 
         Greathammer1 = [1,2,3,4,5]
         Greathammer2 = [6,7,8]
@@ -179,16 +179,16 @@ class Weapon(Player):
             chance_ = random.choice(self.Chance)
             print(chance_)
             if Hweapon == "Greatsword":
-                if chance_ in Greatsword1:
-                    self.Stats.append("Weapon: Greatsword1")
+                if chance_ in Avenger:
+                    self.Stats.append("Weapon: Avenger")
                     break
-                if chance_ in Greatsword2:
+                if chance_ in Zweihander:
                     self.Stats.append("Weapon: Greatsword2")
                     break
-                if chance_ in Greatsword3:
+                if chance_ in Darkalloy_Greatsword:
                     self.Stats.append("Weapon: Greatsword3")
                     break
-                if chance_ in Greatsword4:
+                if chance_ in RailBlade:
                     self.Stats.append("Weapon: Greatsword4")
                     break
             if Hweapon == "Greataxe":
@@ -198,11 +198,11 @@ class Weapon(Player):
                 if chance_ in Nightaxe:
                     self.Stats.append("Weapon: Greataxe2")
                     break
-                if chance_ in Greataxe3:
-                    self.Stats.append("Weapon: Greataxe3")
+                if chance_ in Alloyed_Canorian_Axe:
+                    self.Stats.append("Weapon: Alloyed Canorian Axe")
                     break
-                if chance_ in Greataxe4:
-                    self.Stats.append("Weapon: Greataxe4")
+                if chance_ in Enforcers_Axe:
+                    self.Stats.append("Weapon: Enforcer Axe")
                     break
             if Hweapon == "Greathammer":
                 if chance_ in Greathammer1:
