@@ -1,5 +1,5 @@
 import random 
-PlayerHP = 100
+PlayerHP = 150
 PlayerDMG = 20
 
 
@@ -9,44 +9,59 @@ class Enemys:
         self.id = id
         self.name = name
 
-    def SKnightattack(self):
-        PlayerHP = 100
-        Attacktyp = [1,2,3,4,5,6,7,8,9,10]
-        Attacktyp_ = random.choice(Attacktyp)
-        attack = [1,2,3,4,5,6]
-        magic = [7,8,9]
-        heal = [10]
-        if  Attacktyp_ in attack:
-        # Attack
-            PlayerHP -10
-        if  Attacktyp_ in magic:
-            #Magic
-            PlayerHP - 10
-        if Attacktyp in heal:
-            print("Attack missed")
-    SKnightattack()
-            
 
-    def Fight1(self):
-        numnpc = [5, 6, 7, 8]
+
+
+    def SKnighAttack(self):
+        NPCAttacktyp = [1,2,3,4,5,6,7,8,9,10]
+        NPCAttacktyp_ = random.choice(NPCAttacktyp)
+        NPCattack = [1,2,3,4,5,6]
+        NPCmagic = [7,8,9]
+        NPCheal = [10]
+        if  NPCAttacktyp_ in NPCattack:
+        # Attack
+            attack1 = PlayerHP -100
+            print(f"The Sand Knight attacked you. HP: {attack1}")
+        if  NPCAttacktyp_ in NPCmagic:
+            #Magic
+            magic1 = PlayerHP - 15
+            print(f"The Sand Knight cast a spell on you. HP: {magic1}")
+        if NPCAttacktyp in NPCheal:
+            print("Attack missed")
+
+    def PlayerAttack3_SKRM1(self):
+        SKRM1_1 = 100
+        SKRM1_2 = 100
+        SKRM1_3 = 100
+        skf1 = PlayerDMG - SKRM1_1
+        print(skf1)
+
+            
+            
+    def SKnightRM1fight1(self):
+        print("A")            
+
+"""     def Fight1(self):
+        numnpc = [3, 4, 5 ]
         rnpc = random.choice(numnpc)
         whostart = [1,2,3,4,5]
         whostart_ = random.choice(whostart)
         NPCstart = [1,2,3]
         Playerstart = [4,5]
-        if rnpc == 5:
-            print("5 Sand Knights have spawned!!! ")
+        if rnpc == 3:
+            print("3 Sand Knights have spawned!!! ")
             Choice1 =input("Do you wish to fight or leave? ")
             while Choice1 == "fight":
                 if whostart_ in NPCstart:
-                    SKnightattack()
+                    self.SKnightattack()
                 if whostart_ in Playerstart:
-                    print("WIP")
+                    self.PlayerAttack3_SKRM1()
+                    break
                 else:
                     break
-
-Fight_ = Enemys("self", "id", "name")
-Fight1()
+ """
+Fight_ = Enemys("id", "name")
+Fight_.Fight1()
             
 
 
