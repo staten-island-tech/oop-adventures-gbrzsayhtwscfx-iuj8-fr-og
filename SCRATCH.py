@@ -35,11 +35,11 @@ class Weapon(Player):
         Crucible_Rapier = [8,9]
         Krystreza_ = [10]
 
-        Flareblood_Kamas = [1]
-        Canor_Fang_ = [2,3,4]
-        Nemits_Sickle_ = [5,6,7]
-        Tanto = [8,9]
-        Krulian_Knife = [10]
+        Flareblood_Kamas = [1]#16
+        Canor_Fang_ = [2,3,4]#11
+        Nemits_Sickle_ = [5,6,7]#10
+        Tanto = [8,9]#15.5
+        Krulian_Knife = [10]#12.5
 
         Iron_Cestus = [1,2,3,4,5]
         Legion_Cestus = [6,7,8]
@@ -74,10 +74,10 @@ class Weapon(Player):
         Alloyed_Canorian_Axe = [8,9]
         Enforcers_Axe = [10]
 
-        Greathammer1 = [1,2,3,4,5]
-        Greathammer2 = [6,7,8]
-        Greathammer3 = [9]
-        Greathammer4 = [10]
+        Steel_Maul = [1,2,3,4,5]
+        Great_Maul = [6,7,8]
+        Petras_Anchor = [9]
+        Hivelords_Hubris = [10]
         #Heavy weps
 
         weapon_ = input("What is your weapon class?(Light, Medium, Heavy) ").capitalize()
@@ -87,42 +87,42 @@ class Weapon(Player):
             print(chance_)
             if Lweapon == "Rapier":
                 if chance_ in Ironstinger_:
-                    self.Stats.append("Weapon: Ironstinger")
+                    self.Stats.append("Weapon: Quickfang")#12
                     break
                 elif chance_ in Aprentice_Rapier_:
-                    self.Stats.append("Weapon : Aprentice Rapier")
+                    self.Stats.append("Weapon : Aprentice Rapier")#13
                     break
                 if  chance_ in Crucible_Rapier:
-                    self.Stats.append("Weapon: Crucible Rapier")
+                    self.Stats.append("Weapon: Crucible Rapier")#15
                     break
                 if chance_ in Krystreza_:
-                    self.Stats.append("Weapon: Krystreza")
+                    self.Stats.append("Weapon: Krystreza")#15
                     break
             if Lweapon == "Dagger":
                 if chance_ in Canor_Fang_:
-                    self.Stats.append("weapon: Canor Fang")
+                    self.Stats.append("weapon: Canor Fang")#11
                     break
                 if chance_ in Nemits_Sickle_:
-                    self.Stats.append("Weapon: Nemits Sickle")
+                    self.Stats.append("Weapon: Nemits Sickle")#10
                     break
                 if chance_ in Tanto:
-                    self.Stats.append("Weapon: Tanto")
+                    self.Stats.append("Weapon: Tanto")#15.5
                     break
                 if chance_ in Krulian_Knife:
-                    self.Stats.append("Weapon: Krulian Knife")
+                    self.Stats.append("Weapon: Krulian Knife")#12.5
                     break
                 if chance_ in Flareblood_Kamas:
-                    self.Stats.append("Weapon: Flareblood Kamas")
+                    self.Stats.append("Weapon: Flareblood Kamas")#16
                     break
             if Lweapon == "Fist":
                 if chance_ in Iron_Cestus:
-                    self.Stats.append("Weapon: Iron Cestus")
+                    self.Stats.append("Weapon: Iron Cestus")#13.5
                     break
                 if chance_ in Legion_Cestus:
-                    self.Stats.append("Weapon: Legion Cestus")
+                    self.Stats.append("Weapon: Legion Cestus")#15
                     break
                 if chance_ in Flamekeeper_Cestus:
-                    self.Stats.append("Weapon: Flamekeeper Cestus")
+                    self.Stats.append("Weapon: Flamekeeper Cestus")#15.5
                     break
             if weapon_ == "Heavy":
                 break
@@ -132,46 +132,46 @@ class Weapon(Player):
             print(chance_)
             if Mweapon == "Sword":
                 if chance_ in Messer:
-                    self.Stats.append("Weapon: Messer")
+                    self.Stats.append("Weapon: Messer")#20
                     break
                 if chance_ in Shotel:
-                    self.Stats.append("Weapon: Shotel")
+                    self.Stats.append("Weapon: Shotel")#22
                     break
                 if chance_ in Serpents_edge:
-                    self.Stats.append("Weapon: Serpents Edge")
+                    self.Stats.append("Weapon: Serpents Edge")#22
                     break
                 if chance_ in Shattered_katana:
-                    self.Stats.append("Weapon: Shattered Katana")
+                    self.Stats.append("Weapon: Shattered Katana")#20
                     break
                 if chance_ in Alloyed_Falchion:
-                    self.Stats.append("Weapon: Alloyed Falchion")
+                    self.Stats.append("Weapon: Alloyed Falchion")#16
                     break
             if Mweapon == "Spear":
                 if chance_ in Iron_Spear:
-                    self.Stats.append("Weapon: Iron Spear")
+                    self.Stats.append("Weapon: Iron Spear")#17
                     break
                 if chance_ in Ritual_Spear:
-                    self.Stats.append("Weapon: Ritual Spear")
+                    self.Stats.append("Weapon: Ritual Spear")#19
                     break
                 if chance_ in True_Seraphs_Spear:
-                    self.Stats.append("Weapon: True Seraphs Spear")
+                    self.Stats.append("Weapon: True Seraphs Spear")#18.5
                     break
                 if chance_ in Rifle_Spear:
-                    self.Stats.append("Weapon: Rifle Spear")
+                    self.Stats.append("Weapon: Rifle Spear")#21
                     break
             if Mweapon == "Club":
                 if chance_ in Mace:
-                    self.Stats.append("Weapon: Mace")
+                    self.Stats.append("Weapon: Mace")#20
                     break
                 if chance_ in Sacred_Hammer:
-                    self.Stats.append("Weapon: Sacred Hammer")
+                    self.Stats.append("Weapon: Sacred Hammer")#19.5
                     break
             if Mweapon == "Rifle":
                 if chance_ in Rosens_Peacemaker:
-                    self.Stats.append("Weapon: Rosens Peacemaker")
+                    self.Stats.append("Weapon: Rosens Peacemaker")#18
                     break
                 if chance_ in Iron_Blunderbuss:
-                    self.Stats.append("Weapon: Iron Blunderbuss")
+                    self.Stats.append("Weapon: Iron Blunderbuss")#20
                     break
                 
         while weapon_ == "Heavy":
@@ -180,42 +180,42 @@ class Weapon(Player):
             print(chance_)
             if Hweapon == "Greatsword":
                 if chance_ in Avenger:
-                    self.Stats.append("Weapon: Avenger")
+                    self.Stats.append("Weapon: Avenger")#21
                     break
                 if chance_ in Zweihander:
-                    self.Stats.append("Weapon: Greatsword2")
+                    self.Stats.append("Weapon: Zweihander")#22
                     break
                 if chance_ in Darkalloy_Greatsword:
-                    self.Stats.append("Weapon: Greatsword3")
+                    self.Stats.append("Weapon: Darkalloy Greatsword")#26
                     break
                 if chance_ in RailBlade:
-                    self.Stats.append("Weapon: Greatsword4")
+                    self.Stats.append("Weapon: RailBlade")#22
                     break
             if Hweapon == "Greataxe":
                 if chance_ in Battleaxe:
-                    self.Stats.append("Weapon: Battleaxe")
+                    self.Stats.append("Weapon: Battleaxe")#20
                     break
                 if chance_ in Nightaxe:
-                    self.Stats.append("Weapon: Greataxe2")
+                    self.Stats.append("Weapon: Nightaxe")#22
                     break
                 if chance_ in Alloyed_Canorian_Axe:
-                    self.Stats.append("Weapon: Alloyed Canorian Axe")
+                    self.Stats.append("Weapon: Alloyed Canorian Axe")#24
                     break
                 if chance_ in Enforcers_Axe:
-                    self.Stats.append("Weapon: Enforcer Axe")
+                    self.Stats.append("Weapon: Enforcer Axe")#26
                     break
             if Hweapon == "Greathammer":
-                if chance_ in Greathammer1:
-                    self.Stats.append("Weapon: Greathammer1")
+                if chance_ in Steel_Maul:
+                    self.Stats.append("Weapon: Steel Maul")#22
                     break
-                if chance_ in Greathammer2:
-                    self.Stats.append("Weapon: Greathammer2")
+                if chance_ in Great_Maul:
+                    self.Stats.append("Weapon: Great Maul")#25
                     break
-                if chance_ in Greathammer3:
-                    self.Stats.append("Weapon: Greathammer")
+                if chance_ in Petras_Anchor:
+                    self.Stats.append("Weapon: Petra's Anchor")#26
                     break
-                if chance_ in Greathammer4:
-                    self.Stats.append("Weapon: Greathammer")
+                if chance_ in Hivelords_Hubris:
+                    self.Stats.append("Weapon: Hivelord's Hubris")#30
                     break
 
 
