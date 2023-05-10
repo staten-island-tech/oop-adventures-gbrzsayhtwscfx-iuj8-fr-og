@@ -33,15 +33,15 @@ class Enemys:
         SKRM1_1 = 100
         SKRM1_2 = 100
         SKRM1_3 = 100
-        skf1 = PlayerDMG - SKRM1_1
-        print(skf1)
+        skf1 = SKRM1_1 - PlayerDMG
+        print(f"Enemy HP left : {skf1}")
 
             
             
     def SKnightRM1fight1(self):
         print("A")            
 
-"""     def Fight1(self):
+    def Fight1(self):
         numnpc = [3, 4, 5 ]
         rnpc = random.choice(numnpc)
         whostart = [1,2,3,4,5]
@@ -52,14 +52,15 @@ class Enemys:
             print("3 Sand Knights have spawned!!! ")
             Choice1 =input("Do you wish to fight or leave? ")
             while Choice1 == "fight":
-                if whostart_ in NPCstart:
-                    self.SKnightattack()
+                while whostart_ in NPCstart:
+                    self.SKnighAttack()
+                    self.PlayerAttack3_SKRM1()
                 if whostart_ in Playerstart:
                     self.PlayerAttack3_SKRM1()
                     break
                 else:
                     break
- """
+
 Fight_ = Enemys("id", "name")
 Fight_.Fight1()
             
