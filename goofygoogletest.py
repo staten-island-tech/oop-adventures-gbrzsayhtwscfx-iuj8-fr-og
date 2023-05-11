@@ -1,4 +1,4 @@
-class Warrior:
+""" class Warrior:
     def __init__(self, health, attack_1, attack_2, attack_3, heal):
         self.health = health
         self.attack_1 = attack_1
@@ -52,11 +52,12 @@ while True:
     elif ai == 3:
     #code
 
-
+ """
     ###########
 # CLASSES #
 ###########
-
+import random
+r = random
 class Warrior:
     def __init__(self, health, attack_1, attack_2, attack_3, heal):
         self.health = health
@@ -100,31 +101,26 @@ while True:
 
 player_heal_max = player_class.health
 
-
-################################
-# Difficulty/Upgrade Functions #
-################################
-
-def level_up(player,health_max):
-    while True:
-        lv_choice = input("\nWould you like to:\n 1. Increase max health by 20 \n 2. Increase Healing Factor by 5 \n 3. increase your damage by 5\n")
-        if lv_choice == "1":
-            health_max += 20
-            player.health = health_max
-            return player, health_max
-        elif lv_choice == "2":
-            player.heal += (5,5)
-            player.health = health_max
-            return player, health_max
-        elif lv_choice == "3":
-            player.attack_1 += 5
-            player.attack_2 += (5,5)
-            player.attack_3 += (5,5)
-            player.health = health_max
-            return player, health_max
-        else:
-            print("Please enter in a valid number")
-            continue
+    def level_up(player,health_max):
+        while True:
+           lv_choice = input("Would you like to: 1. Increase max health by 20  2. Increase Healing Factor by 5  3. increase your damage by 5")
+           if lv_choice == "1":
+                health_max += 20
+                player.health = health_max
+                return player, health_max
+            elif lv_choice == "2":
+              player.heal += (5,5)
+              player.health = health_max
+              return player, health_max
+            elif lv_choice == "3":
+                player.attack_1 += 5
+                player.attack_2 += (5,5)
+                player.attack_3 += (5,5)
+                player.health = health_max
+                return player, health_max
+            else:
+                print("Please enter in a valid number")
+                continue
 
 def difficulty(ai,health_max,level):
     if level == 1:
@@ -158,6 +154,7 @@ while True:
     ai_mage   = Warrior(50,  15, (10,20), (-5,25), (10,15))
     ai_healer = Warrior(150, 5,  (5,10),  (5,15),  (10,20))
     ai_classes = [ai_knight, ai_mage, ai_healer]
+    player_name = input("What is your character's name? ")
 
     ai = ai_classes[r.randint(0,2)]
     randomize_ai(ai)
@@ -204,17 +201,17 @@ while True:
         if player_class.is_dead():
             break
         elif ai.is_dead():
-            points += player_class.health * level
+            points = player_class.health * level
             level += 1
-            print("You have bested your opponent! You Have",points,"points. \nNow starting level",level)
+            print("You have bested your opponent! You Have",points,"points. Now starting level",level)
             player_class, player_heal_max = level_up(player_class,player_heal_max)
             break
 
         # AI Turn
         if ai.health <= (ai_heal_max/5):
-            ai_move = r.sample(set([1,2,3,4,4,4]), 1)[0]
+            ai_move = r.choice([1,2,3,4,4,4])
         elif ai.health >= (ai_heal_max*.8):
-            ai_move = r.sample(set([1,2,3,1,2,3,4]), 1)[0]
+            ai_move = r.choice([1,2,3,1,2,3,4])
         elif ai.health == ai_heal_max:
             ai_move = r.randint(1,3)
         else:
@@ -248,9 +245,9 @@ while True:
         if player_class.is_dead():
             break
         elif ai.health <= 0:
-            points += player_class.health * level
+            points = player_class.health * level
             level += 1
-            print("You have bested your opponent! You Have",points,"points. \nNow starting level",level)
+            print("You have bested your opponent! You Have",points,"points. Now starting level",level)
             player_class, player_heal_max = level_up(player_class,player_heal_max)
             break
 
