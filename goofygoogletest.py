@@ -17,14 +17,14 @@
 
 knight = Warrior(100, 10, (5,15),  (5,25),  (5,10))
 mage   = Warrior(50,  15, (10,20), (-5,25), (10,15))
-healer = Warrior(150, 5,  (5,10),  (5,15),  (10,20))
+tank = Warrior(150, 5,  (5,10),  (5,15),  (10,20))
 
 while True:
     # Determining AI Class/Stats
     ai_knight = Warrior(100, 10, (5,15),  (5,25),  (5,10))
     ai_mage   = Warrior(50,  15, (10,20), (-5,25), (10,15))
-    ai_healer = Warrior(150, 5,  (5,10),  (5,15),  (10,20))
-    ai_classes = [ai_knight, ai_mage, ai_healer]
+    ai_tank = Warrior(150, 5,  (5,10),  (5,15),  (10,20))
+    ai_classes = [ai_knight, ai_mage, ai_tank]
 
     ai = ai_classes[r.randint(0,2)]
     randomize_ai(ai)
@@ -32,8 +32,8 @@ while True:
         print("\nYou are fighting a knight with ", ai.health,"HP!")
     elif ai == ai_mage:
         print("\nYou are fighting a mage with ", ai.health,"HP!")
-    elif ai == ai_healer:
-        print("\nYou are fighting a healer with ", ai.health,"HP!")
+    elif ai == ai_tank:
+        print("\nYou are fighting a tank with ", ai.health,"HP!")
 
     if ai == 1:
     #code
@@ -62,9 +62,9 @@ class Warrior:
     def __init__(self, health, attack_1, attack_2, attack_3, heal):
         self.health = health
         self.attack_1 = attack_1
-        self.attack_2 = attack_2 # tuple ie (5,25) representing range for attack value
-        self.attack_3 = attack_3 # tuple ie (10,20) representing range for attack value
-        self.heal = heal # tuple ie (10,20) representing range for health value
+        self.attack_2 = attack_2 
+        self.attack_3 = attack_3 
+        self.heal = heal 
 
     def attributes(self):
         # string containing the attributes of the character
@@ -76,13 +76,14 @@ class Warrior:
 
 knight = Warrior(100, 10, (5,15),  (5,25),  (5,10))
 mage   = Warrior(50,  15, (10,20), (-5,25), (10,15))
-healer = Warrior(150, 5,  (5,10),  (5,15),  (10,20))
+tank = Warrior(150, 5,  (5,10),  (5,15),  (10,20))
 
 while True:
-    print("\n1. Knight: ", knight.attributes())
-    print("\n2. Mage:   ", mage.attributes())
-    print("\n3. Healer: ", healer.attributes())
-    player_class = input("\nSelect your class: 1, 2, or 3: ")
+    print("1. Knight: ", knight.attributes())
+    print("2. Mage:   ", mage.attributes())
+    print("3. Tank: ", tank.attributes())
+    player_name = input("What is your character's name? ")
+    player_class = input("Select your class: 1, 2, or 3: ")
     if player_class == "1":
         player_class = knight
         print("You have selected the Knight class.")
@@ -92,8 +93,8 @@ while True:
         print("You have selected the Mage")
         break
     elif player_class == "3":
-        player_class = healer
-        print("You have selected the Healer")
+        player_class = tank
+        print("You have selected the Tank")
         break
     else:
         print("Please select a valid class.")
@@ -101,26 +102,26 @@ while True:
 
 player_heal_max = player_class.health
 
-    def level_up(player,health_max):
-        while True:
-           lv_choice = input("Would you like to: 1. Increase max health by 20  2. Increase Healing Factor by 5  3. increase your damage by 5")
-           if lv_choice == "1":
-                health_max += 20
-                player.health = health_max
-                return player, health_max
-            elif lv_choice == "2":
-              player.heal += (5,5)
-              player.health = health_max
-              return player, health_max
-            elif lv_choice == "3":
-                player.attack_1 += 5
-                player.attack_2 += (5,5)
-                player.attack_3 += (5,5)
-                player.health = health_max
-                return player, health_max
-            else:
-                print("Please enter in a valid number")
-                continue
+def level_up(player, health_max):
+    while True:
+        lv_choice = input("Would you like to: 1. Increase max health by 20  2. Increase Healing Factor by 5  3. increase your damage by 5 ")
+        if lv_choice == "1":
+            health_max += 20
+            player.health = health_max
+            return player, health_max
+        elif lv_choice == "2":
+            player.heal += (5,5)
+            player.health = health_max
+            return player, health_max
+        elif lv_choice == "3":
+            player.attack_1 += 5
+            player.attack_2 += (5,5)
+            player.attack_3 += (5,5)
+            player.health = health_max
+            return player, health_max
+        else:
+            print("Please enter in a valid number")
+            continue
 
 def difficulty(ai,health_max,level):
     if level == 1:
@@ -152,18 +153,18 @@ while True:
     # Determining AI Class/Stats
     ai_knight = Warrior(100, 10, (5,15),  (5,25),  (5,10))
     ai_mage   = Warrior(50,  15, (10,20), (-5,25), (10,15))
-    ai_healer = Warrior(150, 5,  (5,10),  (5,15),  (10,20))
-    ai_classes = [ai_knight, ai_mage, ai_healer]
-    player_name = input("What is your character's name? ")
+    ai_tank = Warrior(150, 5,  (5,10),  (5,15),  (10,20))
+    ai_classes = [ai_knight, ai_mage, ai_tank]
+
 
     ai = ai_classes[r.randint(0,2)]
     randomize_ai(ai)
     if ai == ai_knight:
-        print("\nYou are fighting a knight with ", ai.health,"HP!")
+        print("You are fighting a knight with ", ai.health,"HP!")
     elif ai == ai_mage:
-        print("\nYou are fighting a mage with ", ai.health,"HP!")
-    elif ai == ai_healer:
-        print("\nYou are fighting a healer with ", ai.health,"HP!")
+        print("You are fighting a mage with ", ai.health,"HP!")
+    elif ai == ai_tank:
+        print("You are fighting a tank with ", ai.health,"HP!")
 
     ai_heal_max = ai.health
 
@@ -172,7 +173,7 @@ while True:
     # Gameplay Loop
     while True:
         # Player Attack
-        player_move = input("\nWould you like to use attack (1), attack (2), attack (3), or heal (4)?  ")
+        player_move = input("Would you like to use attack (1), attack (2), attack (3), or heal (4)?  ")
         print("")
         if player_move == "1":
             player_damage = player_class.attack_1
@@ -233,6 +234,8 @@ while True:
             ai_heal = r.randint(ai.heal[0],ai.heal[1])
             if ai.health + ai_heal > ai_heal_max:
                 ai.health = ai_heal_max
+            if ai.health < 0:
+                print("You DIED")
             else:
                 ai.health = ai.health + ai_heal
             print("Your opponent healed for ", ai_heal," HP")
@@ -253,7 +256,7 @@ while True:
 
     # Finishing Game, Checking/Updating High Score
     if player_class.health<=0:
-        print(" \ nYou Died !: (")
+        print("L + Bozo + ratio")
         if points > score:
             hs = open(" highscore.txt "," w ")
             hs.write(str(points))
