@@ -2,7 +2,7 @@
     def __init__(self, health, attack_1, attack_2, attack_3, heal):
         self.health = health
         self.attack_1 = attack_1
-        self.attack_2 = attack_2 # tuple ie (5,25) representing range for attack value
+        self.attack_2 = attack_2 
         self.attack_3 = attack_3 # tuple ie (10,20) representing range for attack value
         self.heal = heal # tuple ie (10,20) representing range for health value
 
@@ -107,23 +107,23 @@ def level_up(player, health_max):
         lv_choice = input("Would you like to: 1. Increase max health by 20  2. Increase Healing Factor by 5  3. increase your damage by 5 ")
         if lv_choice == "1":
             health_max += 20
-            player.health = health_max
+            player_class.health = health_max
             return player, health_max
         elif lv_choice == "2":
-            player.heal += (5,5)
-            player.health = health_max
-            return player, health_max
+            player_class.heal += (5,5)
+            player_class.health = health_max
+            return player_class, health_max
         elif lv_choice == "3":
-            player.attack_1 += 5
-            player.attack_2 += (5,5)
-            player.attack_3 += (5,5)
-            player.health = health_max
+            player_class.attack_1 += 5
+            player_class.attack_2 += (5,5)
+            player_class.attack_3 += (5,5)
+            player_class.health = health_max
             return player, health_max
         else:
             print("Please enter in a valid number")
             continue
 
-def difficulty(ai,health_max,level):
+def difficulty(health_max,level):
     if level == 1:
         return ai
     else:
@@ -134,7 +134,7 @@ def difficulty(ai,health_max,level):
         ai.heal += (5 * round(0.5 * level + 0.5),5 * round(0.5 * level + 0.5))
         return ai
 
-def randomize_ai(ai):
+def randomize_ai():
     ai.health += r.randint(-20,20)
     ai.attack_1 += r.randint(-3,3)
     ai.attack_2 += (r.randint(-3,3),r.randint(-3,3))
@@ -147,7 +147,7 @@ def randomize_ai(ai):
 #############
 
 level = 1
-print("\n----------------------- GAME START -----------------------")
+print("----------------------- GAME START -----------------------")
 
 while True:
     # Determining AI Class/Stats
@@ -158,7 +158,7 @@ while True:
 
 
     ai = ai_classes[r.randint(0,2)]
-    randomize_ai(ai)
+    randomize_ai()
     if ai == ai_knight:
         print("You are fighting a knight with ", ai.health,"HP!")
     elif ai == ai_mage:
@@ -168,7 +168,7 @@ while True:
 
     ai_heal_max = ai.health
 
-    ai = difficulty(ai, ai_heal_max, level)
+    ai = difficulty(ai_heal_max, level)
 
     # Gameplay Loop
     while True:
@@ -257,15 +257,16 @@ while True:
     # Finishing Game, Checking/Updating High Score
     if player_class.health<=0:
         print("L + Bozo + ratio")
-        if points > score:
+        if points > 9999999999999999999999999999:
             hs = open(" highscore.txt "," w ")
             hs.write(str(points))
-            hs.write(" \ n ")
+
             print(" You have the new high score of ",points," !")
             hs.write(player_name)
+        if points < 0:
+            break
         else:
-            print(" \ nYou finished with ",points," points.")
-            print(" The high score is:",score," by ",leader)
+            print("You finished with ",points," points.")
         input(" ")
         hs.close()
         break
