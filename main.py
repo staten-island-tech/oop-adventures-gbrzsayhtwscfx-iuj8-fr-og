@@ -1,7 +1,7 @@
 import random
 r = random
 class Warrior:
-    def __init__(self, health, attack_1, attack_2, attack_3, heal):
+    def __init__(self, health, attack_1, attack_2, heal):
         self.health = health
         self.attack_1 = attack_1
         self.attack_2 = attack_2 
@@ -16,15 +16,16 @@ class Warrior:
     def is_dead(self):
         return self.health <= 0
 
-knight = Warrior(100, 10, (5,15),  (5,25),  (5,10))
-mage   = Warrior(50,  15, (10,20), (-5,25), (10,15))
-tank = Warrior(150, 5,  (5,10),  (5,15),  (10,20))
+knight = Warrior(100, 15, (10,30), (15,15))
+mage   = Warrior(75,  20, (15,40), (10,10))
+tank = Warrior(150, 10,  (5,21), (20,20))
 
 while True:
+    player_name = input("What is your character's name? ")
+    print(f"Welcome, {player_name}, a trial awaits you. Move foward with your heart, and conquer your enemies. You will be ranked based on your ability to beat enemies that become stronger over time. Good luck, {player_name}!")
     print("1. Knight: ", knight.attributes())
     print("2. Mage:   ", mage.attributes())
     print("3. Tank: ", tank.attributes())
-    player_name = input("What is your character's name? ")
     player_class = input("Select your class: 1, 2, or 3: ")
     if player_class == "1":
         player_class = knight
@@ -91,9 +92,9 @@ print("----------------------- GAME START -----------------------")
 
 while True:
     # Determining AI Class/Stats
-    ai_knight = Warrior(100, 10, (5,15),  (5,25),  (5,10))
-    ai_mage   = Warrior(50,  15, (10,20), (-5,25), (10,15))
-    ai_tank = Warrior(150, 5,  (5,10),  (5,15),  (10,20))
+    ai_knight = Warrior(100, 10, (5,15), (5,10))
+    ai_mage   = Warrior(50,  15, (10,20), (10,15))
+    ai_tank = Warrior(150, 5,  (5,10), (10,20))
     ai_classes = [ai_knight, ai_mage, ai_tank]
 
 
@@ -122,6 +123,8 @@ while True:
         elif player_move == "2":
             player_damage = r.randint(player_class.attack_2[0],player_class.attack_2[1])
             ai.health = ai.health - player_damage
+            if player_damage >= 21:
+                print("CRIT!!!")
             print(player_name," did",player_damage,"damage!")
         elif player_move == "4":
             player_heal = r.randint(player_class.heal[0],player_class.heal[1])
@@ -161,6 +164,8 @@ while True:
         elif ai_move == 2:
             ai_damage = r.randint(ai.attack_2[0],ai.attack_2[1])
             player_class.health = player_class.health- ai_damage
+            if ai_damage >= 21:
+                print("CRIT!!!")
             print("Your opponent did ",ai_damage," damage!")
         elif ai_move == 4:
             ai_heal = r.randint(ai.heal[0],ai.heal[1])
@@ -173,12 +178,15 @@ while True:
             print("Your opponent healed for ", ai_heal," HP")
 
         # Displaying HP  
-        print("\nYour health is:", player_class.health,"HP")
+        print("Your health is:", player_class.health,"HP")
         print("Your opponent's health is ", ai.health," HP ")
 
+        if level >= 5:
+
+
         # Detecting Death
-        if player_class.is_dead():
-            brqeak
+            if player_class.is_dead():
+                break
         elif ai.health <= 0:
             points = player_class.health * level
             level += 1
@@ -189,16 +197,22 @@ while True:
     # Finishing Game, Checking/Updating High Score
     if player_class.health<=0:
         print("L + Bozo + ratio")
-        if points > 9999999999999999999999999999:
-            hs = open(" highscore.txt "," w ")
-            hs.write(str(points))
+        if points <= 30:
+            print("E Rank")
+        if points <= 50:
+            print("D Rank")
+        if points <= 70:
+            print("C Rank")
+        if points <= 90:
+            print("B Rank")
+        if points <= 100:
+            print("A Rank")
+        if points > 101:
+            print("S Rank")
 
-            print(" You have the new high score of ",points," !")
-            hs.write(player_name)
         if points < 0:
             break
         else:
             print("You finished with ",points," points.")
         input(" ")
-        hs.close()
         break
