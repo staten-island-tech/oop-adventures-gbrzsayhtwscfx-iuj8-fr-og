@@ -222,13 +222,17 @@ class Weapon(Player):
 
 
 
-
-Player_ = Player("id","name",300,5,0,"weptype")
-Player_.name1()
-Player_.wep_class
-print(Player_.name)
-Player1 = Weapon("name","health","damage","rroll","weptype","weapon")
-Player1.ask_weapon()
-Player_.print_player_stats()
+x= input("Do you wish to start? y/n")
+while x == "y":
+    Player_ = Player("id","name",300,5,0,"weptype")
+    Player_.name1()
+    Player_.wep_class
+    print(Player_.name)
+    Player1 = Weapon("name","health","damage","rroll","weptype","weapon")
+    Player1.ask_weapon()
+    Player_.print_player_stats()
+    break
+if x == "n":
+    print("Game Closed")
 
 
