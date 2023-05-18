@@ -1,2 +1,2 @@
 import SCRATCH
-from combat import Warrior
+import combat

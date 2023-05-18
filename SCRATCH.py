@@ -10,10 +10,7 @@ class Player:
         self.rroll = rroll
         self.weptype = weptype
         
-    def name1(self):
-        name_ = input("What is your name? ")
-        self.name = name_
-        self.Stats.append(self.name)
+
     def wep_class(self):
         wep_ = input("What weapon class(Light, Medium, Heavy)? ").capitalize
         self.weptype = wep_
@@ -259,15 +256,13 @@ class Weapon(Player):
 
 
 
-x= input("Do you wish to start? y/n")
+x= input("Do you wish to start? y/n ")
 while x == "y":
-    Player_ = Player("id","name",300,5,0,"weptype")
-    Player_.name1()
+    Player_ = Player("id","",300,5,0,"weptype")
     Player_.wep_class
     print(Player_.name)
     Player1 = Weapon("name","health","damage","rroll","weptype","weapon")
     Player1.ask_weapon()
-    Player_.print_player_stats()
     break
 if x == "n":
     print("Game Closed")
