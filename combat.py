@@ -17,15 +17,13 @@ class Warrior:
 
     def is_dead(self):
         return self.health <= 0
-
-knight = Warrior(100, 15, (10,30), (15,15))
-mage   = Warrior(75,  20, (15,40), (10,10))
-tank = Warrior(150, 10,  (5,21), (20,20))
+        
+knight = Warrior(100, Weapon, (10,30), (15,15))
+mage   = Warrior(75,  Weapon, (15,40), (10,10))
+tank = Warrior(150, Weapon,  (5,21), (20,20))
 
 while True:
     player_name = input("What is your character's name? ")
-    ahbsa = Weapon
-    ahbsa.ask_weapon()
     print(f"Welcome, {player_name}, a trial awaits you. Move foward with your heart, and conquer your enemies. You will be ranked based on your ability to beat enemies that become stronger over time. Good luck, {player_name}!")
     print("1. Knight: ", knight.attributes())
     print("2. Mage:   ", mage.attributes())
