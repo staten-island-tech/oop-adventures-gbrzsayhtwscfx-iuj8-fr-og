@@ -1,7 +1,7 @@
 import random
-import SCRATCH
+r= random
 from SCRATCH import Weapon
-r = random
+from SCRATCH import Player
 class Warrior:
     def __init__(self, health, attack_1, attack_2, heal):
         self.health = health
@@ -18,9 +18,9 @@ class Warrior:
     def is_dead(self):
         return self.health <= 0
         
-knight = Warrior(100, Weapon, (10,30), (15,15))
-mage   = Warrior(75,  Weapon, (15,40), (10,10))
-tank = Warrior(150, Weapon,  (5,21), (20,20))
+knight = Warrior(100, 10, (10,20), (15,15))
+mage   = Warrior(75,  15, (15,40), (10,10))
+tank = Warrior(150, 5,  (5,21), (20,20))
 
 while True:
     player_name = input("What is your character's name? ")
@@ -32,14 +32,18 @@ while True:
     if player_class == "1":
         player_class = knight
         print("You have selected the Knight class.")
+        Weapon
+        Player.player_dmgprob
         break
     elif player_class == "2":
         player_class = mage
         print("You have selected the Mage")
+        Weapon
         break
     elif player_class == "3":
         player_class = tank
         print("You have selected the Tank")
+        Weapon
         break
     else:
         print("Please select a valid class.")
@@ -83,10 +87,6 @@ def randomize_ai():
     ai.attack_2 += (r.randint(-3,3),r.randint(-3,3))
     ai.heal += (r.randint(-3,3),r.randint(-3,3))
     return ai
-
-#############
-# Game Loop #
-#############
 
 level = 1
 print("----------------------- GAME START -----------------------")

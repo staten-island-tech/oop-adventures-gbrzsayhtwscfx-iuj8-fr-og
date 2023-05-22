@@ -2,6 +2,7 @@ import random
 
 class Player:
     Stats = []
+    player_dmg = []
     def __init__(self, id, name, health, damage, rroll, weptype):
         self.id = id
         self.name = name
@@ -17,6 +18,9 @@ class Player:
         self.Stats.append(self.weptype)
     def print_player_stats(self):
         print(self.Stats)
+    def player_dmgprob(self):
+        print(self.player_dmg)
+
 
 
 class Weapon(Player):
@@ -27,6 +31,7 @@ class Weapon(Player):
         self.lightwep = lightwep
         
     def ask_weapon(self):
+
         Ironstinger_ = [1,2,3,4]
         Aprentice_Rapier_ = [5,6,7]
         Crucible_Rapier = [8,9]
@@ -78,8 +83,7 @@ class Weapon(Player):
         #Heavy weps
 
         weapon_ = input("What is your weapon class?(Mage, Knight, Tank) ").capitalize()
-        player_dmg = 0
-        while weapon_ == "Mage":
+        while True:
             Lweapon = input("Dagger, Rapier, or Fist? ").capitalize()
             chance_ = random.choice(self.Chance)
             print(chance_)
@@ -87,52 +91,64 @@ class Weapon(Player):
                 if chance_ in Ironstinger_:
                     self.Stats.append("Weapon: Quickfang")#12
                     player_dmg = 12
+                    print(player_dmg)
                     break
                 elif chance_ in Aprentice_Rapier_:
                     self.Stats.append("Weapon : Aprentice Rapier")#13
                     player_dmg = 13
+                    print(player_dmg)
                     break
                 if  chance_ in Crucible_Rapier:
                     self.Stats.append("Weapon: Crucible Rapier")#15
                     player_dmg = 15
+                    print(player_dmg)
                     break
                 if chance_ in Krystreza_:
                     self.Stats.append("Weapon: Krystreza")#15
                     player_dmg = 15
+                    print(player_dmg)
                     break
             if Lweapon == "Dagger":
                 if chance_ in Canor_Fang_:
                     self.Stats.append("weapon: Canor Fang")#11
                     player_dmg = 11
+                    print(player_dmg)
                     break
                 if chance_ in Nemits_Sickle_:
                     self.Stats.append("Weapon: Nemits Sickle")#10
                     player_dmg = 10
+                    print(player_dmg)
                     break
                 if chance_ in Tanto:
                     self.Stats.append("Weapon: Tanto")#15.5
                     player_dmg = 15.5
+                    print(player_dmg)
                     break
                 if chance_ in Krulian_Knife:
                     self.Stats.append("Weapon: Krulian Knife")#12.5
                     player_dmg = 12.5
+                    print(player_dmg)
                     break
                 if chance_ in Flareblood_Kamas:
                     self.Stats.append("Weapon: Flareblood Kamas")#16
                     player_dmg = 16
+                    print(player_dmg)
                     break
             if Lweapon == "Fist":
                 if chance_ in Iron_Cestus:
                     self.Stats.append("Weapon: Iron Cestus")#13.5
                     player_dmg = 13.5
+                    print(player_dmg)
                     break
                 if chance_ in Legion_Cestus:
                     self.Stats.append("Weapon: Legion Cestus")#15
                     player_dmg = 15
+                    print(player_dmg)
                     break
                 if chance_ in Flamekeeper_Cestus:
                     self.Stats.append("Weapon: Flamekeeper Cestus")#15.5
                     player_dmg = 15.5
+                    print(player_dmg)
                     break
         while weapon_ == "Knight":
             Mweapon = input("Sword, Club, Spear or Rifle? ").capitalize()
@@ -142,57 +158,70 @@ class Weapon(Player):
                 if chance_ in Messer:
                     self.Stats.append("Weapon: Messer")#20
                     player_dmg = 20
+                    print(player_dmg)
                     break
                 if chance_ in Shotel:
                     self.Stats.append("Weapon: Shotel")#22
                     player_dmg = 22
+                    print(player_dmg)
                     break
                 if chance_ in Serpents_edge:
                     self.Stats.append("Weapon: Serpents Edge")#22
                     player_dmg = 22
+                    print(player_dmg)
                     break
                 if chance_ in Shattered_katana:
                     self.Stats.append("Weapon: Shattered Katana")#20
                     player_dmg = 20
+                    print(player_dmg)
                     break
                 if chance_ in Alloyed_Falchion:
                     self.Stats.append("Weapon: Alloyed Falchion")#16
                     player_dmg = 16
+                    print(player_dmg)
                     break
             if Mweapon == "Spear":
                 if chance_ in Iron_Spear:
                     self.Stats.append("Weapon: Iron Spear")#17
                     player_dmg = 17
+                    print(player_dmg)
                     break
                 if chance_ in Ritual_Spear:
                     self.Stats.append("Weapon: Ritual Spear")#19
                     player_dmg = 19
+                    print(player_dmg)
                     break
                 if chance_ in True_Seraphs_Spear:
                     self.Stats.append("Weapon: True Seraphs Spear")#18.5
                     player_dmg = 18.5
+                    print(player_dmg)
                     break
                 if chance_ in Rifle_Spear:
                     self.Stats.append("Weapon: Rifle Spear")#21
                     player_dmg = 21
+                    print(player_dmg)
                     break
             if Mweapon == "Club":
                 if chance_ in Mace:
                     self.Stats.append("Weapon: Mace")#20
                     player_dmg = 20
+                    print(player_dmg)
                     break
                 if chance_ in Sacred_Hammer:
                     self.Stats.append("Weapon: Sacred Hammer")#19.5
                     player_dmg = 19.5
+                    print(player_dmg)
                     break
             if Mweapon == "Rifle":
                 if chance_ in Rosens_Peacemaker:
                     self.Stats.append("Weapon: Rosens Peacemaker")#18
                     player_dmg = 18
+                    print(player_dmg)
                     break
                 if chance_ in Iron_Blunderbuss:
                     self.Stats.append("Weapon: Iron Blunderbuss")#20
                     player_dmg = 20
+                    print(player_dmg)
                     break
                 
         while weapon_ == "Tank":
@@ -203,58 +232,74 @@ class Weapon(Player):
                 if chance_ in Avenger:
                     self.Stats.append("Weapon: Avenger")#21
                     player_dmg = 21
+                    print(player_dmg)
                     break
                 if chance_ in Zweihander:
                     self.Stats.append("Weapon: Zweihander")#22
                     player_dmg = 22
+                    print(player_dmg)
                     break
                 if chance_ in Darkalloy_Greatsword:
                     self.Stats.append("Weapon: Darkalloy Greatsword")#26
                     player_dmg = 26
+                    print(player_dmg)
                     break
                 if chance_ in RailBlade:
                     self.Stats.append("Weapon: RailBlade")#22
                     player_dmg = 22
+                    print(player_dmg)
                     break
             if Hweapon == "Greataxe":
                 if chance_ in Battleaxe:
                     self.Stats.append("Weapon: Battleaxe")#20
                     player_dmg = 20
+                    print(player_dmg)
                     break
                 if chance_ in Nightaxe:
                     self.Stats.append("Weapon: Nightaxe")#22
                     player_dmg = 22
+                    print(player_dmg)
                     break
                 if chance_ in Alloyed_Canorian_Axe:
                     self.Stats.append("Weapon: Alloyed Canorian Axe")#24
                     player_dmg = 24
+                    print(player_dmg)
                     break
                 if chance_ in Enforcers_Axe:
                     self.Stats.append("Weapon: Enforcer Axe")#26
                     player_dmg = 26
+                    print(player_dmg)
                     break
+            print(player_dmg)
             if Hweapon == "Greathammer":
                 if chance_ in Steel_Maul:
                     self.Stats.append("Weapon: Steel Maul")#22
                     player_dmg = 22
+                    print(player_dmg)
                     break
                 if chance_ in Great_Maul:
                     self.Stats.append("Weapon: Great Maul")#25
                     player_dmg = 25
+                    print(player_dmg)
                     break
                 if chance_ in Petras_Anchor:
                     self.Stats.append("Weapon: Petra's Anchor")#26
                     player_dmg = 26
+                    print(player_dmg)
                     break
                 if chance_ in Hivelords_Hubris:
                     self.Stats.append("Weapon: Hivelord's Hubris")#30
                     player_dmg = 30
+                    print(player_dmg)
                     break
 
 
 
 
-
+""" ahhh = Weapon("one", "two", "three", "four", "five", "six")
+ahhh.ask_weapon()
+ahh1 = Player("1", "2", "3" , "4" , "5", "6")
+ahh1.print_player_stats() """
 
 
 
