@@ -32,18 +32,14 @@ while True:
     if player_class == "1":
         player_class = knight
         print("You have selected the Knight class.")
-        Weapon
-        Player.player_dmgprob
         break
     elif player_class == "2":
         player_class = mage
         print("You have selected the Mage")
-        Weapon
         break
     elif player_class == "3":
         player_class = tank
         print("You have selected the Tank")
-        Weapon
         break
     else:
         print("Please select a valid class.")
