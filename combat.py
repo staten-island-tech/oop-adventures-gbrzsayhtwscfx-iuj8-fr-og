@@ -1,7 +1,5 @@
 import random
-r= random
-from SCRATCH import Weapon
-from SCRATCH import Player
+r = random
 class Warrior:
     def __init__(self, health, attack_1, attack_2, heal):
         self.health = health
