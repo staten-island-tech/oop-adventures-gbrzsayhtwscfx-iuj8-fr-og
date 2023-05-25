@@ -1,24 +1,27 @@
 import random
 r = random
+from list import *
 class Warrior:
     def __init__(self, health, attack_1, attack_2, heal):
         self.health = health
         self.attack_1 = attack_1
         self.attack_2 = attack_2 
-     
         self.heal = heal 
 
     def attributes(self):
         # string containing the attributes of the character
-        string = "Health: "+ str(self.health) + " Attack 1: "+ str(self.attack_1) + " Attack 2: "+ str(self.attack_2[0]) + "-"+ str(self.attack_2[1])+  " Heal:"+ str(self.heal[0]) + "-" + str(self.heal[0])
+        string = "Health: "+ str(self.health) + " Attack 1: "+ str(self.attack_1 + Ironstinger) + " Attack 2: "+ str(self.attack_2[0]) + "-"+ str(self.attack_2[1])+  " Heal:"+ str(self.heal[0]) + "-" + str(self.heal[0])
         return string
 
     def is_dead(self):
         return self.health <= 0
+
+
+
         
-knight = Warrior(100, 10, (10,20), (15,15))
-mage   = Warrior(75,  15, (15,40), (10,10))
-tank = Warrior(150, 5,  (5,21), (20,20))
+knight = Warrior(100, 0, (10,20), (15,15))
+mage   = Warrior(75,  0, (15,40), (10,10))
+tank = Warrior(150, 0,  (5,21), (20,20))
 
 while True:
     player_name = input("What is your character's name? ")
@@ -30,6 +33,7 @@ while True:
     if player_class == "1":
         player_class = knight
         print("You have selected the Knight class.")
+        
         break
     elif player_class == "2":
         player_class = mage
