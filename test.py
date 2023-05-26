@@ -1,2 +1,3 @@
-import SCRATCH
 import combat
+
+

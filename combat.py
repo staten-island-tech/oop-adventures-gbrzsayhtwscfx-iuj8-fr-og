@@ -8,17 +8,36 @@ class Warrior:
         self.attack_2 = attack_2 
         self.heal = heal 
 
-    def attributes(self):
+    def K_attributes(self):
         # string containing the attributes of the character
-        string = "Health: "+ str(self.health) + " Attack 1: "+ str(self.attack_1 + Ironstinger) + " Attack 2: "+ str(self.attack_2[0]) + "-"+ str(self.attack_2[1])+  " Heal:"+ str(self.heal[0]) + "-" + str(self.heal[0])
+        wlist = [ Ironstinger , Aprentice_Rapier_, Crucible_Rapier, Krystreza_, Canor_Fang_, Nemits_Sickle_, Tanto, Krulian_Knife, Flareblood_Kamas, Iron_Cestus, Legion_Cestus, Flamekeeper_Cestus, Messer, Shotel, Serpents_edge, Shattered_katana, Alloyed_Falchion, Iron_Spear, Ritual_Spear, True_Seraphs_Spear, Rifle_Spear, Mace, Sacred_Hammer, Rosens_Peacemaker, Iron_Blunderbuss, Avenger, Zweihander, Darkalloy_Greatsword, RailBlade, Battleaxe, Nightaxe, Alloyed_Canorian_Axe, Enforcers_Axe, Steel_Maul, Great_Maul, Petras_Anchor, Hivelords_Hubris ]
+        smash = r.choice(wlist)
+        smash + 10
+        self.attack_1 = smash
+        string = "Health: "+ str(self.health) + " Attack 1: "+ str([self.attack_1]) + " Attack 2: "+ str(self.attack_2[0]) + "-"+ str(self.attack_2[1])+  " Heal:"+ str(self.heal[0]) + "-" + str(self.heal[0])
+        return string
+
+    def M_attributes(self):
+        # string containing the attributes of the character
+        wlist = [ Ironstinger , Aprentice_Rapier_, Crucible_Rapier, Krystreza_, Canor_Fang_, Nemits_Sickle_, Tanto, Krulian_Knife, Flareblood_Kamas, Iron_Cestus, Legion_Cestus, Flamekeeper_Cestus, Messer, Shotel, Serpents_edge, Shattered_katana, Alloyed_Falchion, Iron_Spear, Ritual_Spear, True_Seraphs_Spear, Rifle_Spear, Mace, Sacred_Hammer, Rosens_Peacemaker, Iron_Blunderbuss, Avenger, Zweihander, Darkalloy_Greatsword, RailBlade, Battleaxe, Nightaxe, Alloyed_Canorian_Axe, Enforcers_Axe, Steel_Maul, Great_Maul, Petras_Anchor, Hivelords_Hubris ]
+        smash = r.choice(wlist)
+        smash - 15
+        self.attack_1 = smash
+        string = "Health: "+ str(self.health) + " Attack 1: "+ str([self.attack_1]) + " Attack 2: "+ str(self.attack_2[0]) + "-"+ str(self.attack_2[1])+  " Heal:"+ str(self.heal[0]) + "-" + str(self.heal[0])
+        return string
+
+    def T_attributes(self):
+        # string containing the attributes of the character
+        wlist = [ Ironstinger , Aprentice_Rapier_, Crucible_Rapier, Krystreza_, Canor_Fang_, Nemits_Sickle_, Tanto, Krulian_Knife, Flareblood_Kamas, Iron_Cestus, Legion_Cestus, Flamekeeper_Cestus, Messer, Shotel, Serpents_edge, Shattered_katana, Alloyed_Falchion, Iron_Spear, Ritual_Spear, True_Seraphs_Spear, Rifle_Spear, Mace, Sacred_Hammer, Rosens_Peacemaker, Iron_Blunderbuss, Avenger, Zweihander, Darkalloy_Greatsword, RailBlade, Battleaxe, Nightaxe, Alloyed_Canorian_Axe, Enforcers_Axe, Steel_Maul, Great_Maul, Petras_Anchor, Hivelords_Hubris ]
+        smash = r.choice(wlist)
+        smash + 5
+        self.attack_1 = smash
+        string = "Health: "+ str(self.health) + " Attack 1: "+ str([self.attack_1]) + " Attack 2: "+ str(self.attack_2[0]) + "-"+ str(self.attack_2[1])+  " Heal:"+ str(self.heal[0]) + "-" + str(self.heal[0])
         return string
 
     def is_dead(self):
         return self.health <= 0
 
-
-
-        
 knight = Warrior(100, 0, (10,20), (15,15))
 mage   = Warrior(75,  0, (15,40), (10,10))
 tank = Warrior(150, 0,  (5,21), (20,20))
@@ -26,14 +45,15 @@ tank = Warrior(150, 0,  (5,21), (20,20))
 while True:
     player_name = input("What is your character's name? ")
     print(f"Welcome, {player_name}, a trial awaits you. Move foward with your heart, and conquer your enemies. You will be ranked based on your ability to beat enemies that become stronger over time. Good luck, {player_name}!")
-    print("1. Knight: ", knight.attributes())
-    print("2. Mage:   ", mage.attributes())
-    print("3. Tank: ", tank.attributes())
+    print("1. Knight: ", knight.K_attributes())
+    print("2. Mage:   ", mage.M_attributes())
+    print("3. Tank: ", tank.T_attributes())
     player_class = input("Select your class: 1, 2, or 3: ")
     if player_class == "1":
         player_class = knight
         print("You have selected the Knight class.")
-        
+
+
         break
     elif player_class == "2":
         player_class = mage
@@ -51,7 +71,7 @@ player_heal_max = player_class.health
 
 def level_up(player, health_max):
     while True:
-        lv_choice = input("Would you like to: 1. Increase max health by 20  2. Increase Healing Factor by 5  3. increase your damage by 5 ")
+        lv_choice = input("Would you like to: 1. Increase max health by 20  2. Increase Healing Factor by 5  3. increase your damage by 5    :    ")
         if lv_choice == "1":
             health_max += 20
             player_class.health = health_max
@@ -73,10 +93,10 @@ def difficulty(health_max,level):
     if level == 1:
         return ai
     else:
-        ai.health = health_max + 15 * round(0.5 * level + 0.5)
-        ai.attack_1 += 5 * round(0.5 * level + 0.5)
-        ai.attack_2 += (5 * round(0.5 * level + 0.5),5 * round(0.5 * level + 0.5))
-        ai.heal += (5 * round(0.5 * level + 0.5),5 * round(0.5 * level + 0.5))
+        ai.health = health_max + 25 * round(0.5 * level + 0.5)
+        ai.attack_1 += 20 * round(0.5 * level + 0.5)
+        ai.attack_2 += (10 * round(0.5 * level + 0.5),5 * round(0.5 * level + 0.5))
+        ai.heal += (10 * round(0.5 * level + 0.5),5 * round(0.5 * level + 0.5))
         return ai
 
 def randomize_ai():
@@ -91,9 +111,9 @@ print("----------------------- GAME START -----------------------")
 
 while True:
     # Determining AI Class/Stats
-    ai_knight = Warrior(100, 10, (5,15), (5,10))
-    ai_mage   = Warrior(50,  15, (10,20), (10,15))
-    ai_tank = Warrior(150, 5,  (5,10), (10,20))
+    ai_knight = Warrior(100, 20, (5,15), (5,10))
+    ai_mage   = Warrior(75,  10, (10,40), (10,10))
+    ai_tank = Warrior(150, 15,  (15,20), (10,5))
     ai_classes = [ai_knight, ai_mage, ai_tank]
 
 
@@ -113,7 +133,7 @@ while True:
     # Gameplay Loop
     while True:
         # Player Attack
-        player_move = input("Would you like to use attack (1), attack (2), attack (3), or heal (4)?  ")
+        player_move = input("Would you like to use attack (1), attack (2), or heal (4)?  ")
         print("")
         if player_move == "1":
             player_damage = player_class.attack_1
