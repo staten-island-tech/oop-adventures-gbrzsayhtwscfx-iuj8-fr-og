@@ -1,3 +1,5 @@
+
+
 Ironstinger = int(12)
 Aprentice_Rapier_ = int(13)
 Crucible_Rapier = int(15)
@@ -35,5 +37,6 @@ Steel_Maul = int(22)
 Great_Maul = int(25)
 Petras_Anchor = int(26)
 Hivelords_Hubris = int(30)
+SwordOfSlaves = int(500)
 
             

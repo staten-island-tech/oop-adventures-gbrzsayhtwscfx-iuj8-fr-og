@@ -10,37 +10,34 @@ class Warrior:
 
     def K_attributes(self):
         # string containing the attributes of the character
-        wlist = [ Ironstinger , Aprentice_Rapier_, Crucible_Rapier, Krystreza_, Canor_Fang_, Nemits_Sickle_, Tanto, Krulian_Knife, Flareblood_Kamas, Iron_Cestus, Legion_Cestus, Flamekeeper_Cestus, Messer, Shotel, Serpents_edge, Shattered_katana, Alloyed_Falchion, Iron_Spear, Ritual_Spear, True_Seraphs_Spear, Rifle_Spear, Mace, Sacred_Hammer, Rosens_Peacemaker, Iron_Blunderbuss, Avenger, Zweihander, Darkalloy_Greatsword, RailBlade, Battleaxe, Nightaxe, Alloyed_Canorian_Axe, Enforcers_Axe, Steel_Maul, Great_Maul, Petras_Anchor, Hivelords_Hubris ]
+        wlist = [ Messer, Shotel, Serpents_edge, Shattered_katana, Alloyed_Falchion, Iron_Spear, Ritual_Spear, True_Seraphs_Spear, Rifle_Spear, Mace, Sacred_Hammer, Rosens_Peacemaker, Iron_Blunderbuss]
         smash = r.choice(wlist)
-        smash + 10
-        self.attack_1 = smash
+        self.attack_1 = smash + 5
         string = "Health: "+ str(self.health) + " Attack 1: "+ str([self.attack_1]) + " Attack 2: "+ str(self.attack_2[0]) + "-"+ str(self.attack_2[1])+  " Heal:"+ str(self.heal[0]) + "-" + str(self.heal[0])
         return string
 
     def M_attributes(self):
         # string containing the attributes of the character
-        wlist = [ Ironstinger , Aprentice_Rapier_, Crucible_Rapier, Krystreza_, Canor_Fang_, Nemits_Sickle_, Tanto, Krulian_Knife, Flareblood_Kamas, Iron_Cestus, Legion_Cestus, Flamekeeper_Cestus, Messer, Shotel, Serpents_edge, Shattered_katana, Alloyed_Falchion, Iron_Spear, Ritual_Spear, True_Seraphs_Spear, Rifle_Spear, Mace, Sacred_Hammer, Rosens_Peacemaker, Iron_Blunderbuss, Avenger, Zweihander, Darkalloy_Greatsword, RailBlade, Battleaxe, Nightaxe, Alloyed_Canorian_Axe, Enforcers_Axe, Steel_Maul, Great_Maul, Petras_Anchor, Hivelords_Hubris ]
+        wlist = [ Ironstinger , Aprentice_Rapier_, Crucible_Rapier, Krystreza_, Canor_Fang_, Nemits_Sickle_, Tanto, Krulian_Knife, Flareblood_Kamas, Iron_Cestus, Legion_Cestus, Flamekeeper_Cestus, SwordOfSlaves]
         smash = r.choice(wlist)
-        smash - 15
-        self.attack_1 = smash
+        self.attack_1 =smash - 12
         string = "Health: "+ str(self.health) + " Attack 1: "+ str([self.attack_1]) + " Attack 2: "+ str(self.attack_2[0]) + "-"+ str(self.attack_2[1])+  " Heal:"+ str(self.heal[0]) + "-" + str(self.heal[0])
         return string
 
     def T_attributes(self):
         # string containing the attributes of the character
-        wlist = [ Ironstinger , Aprentice_Rapier_, Crucible_Rapier, Krystreza_, Canor_Fang_, Nemits_Sickle_, Tanto, Krulian_Knife, Flareblood_Kamas, Iron_Cestus, Legion_Cestus, Flamekeeper_Cestus, Messer, Shotel, Serpents_edge, Shattered_katana, Alloyed_Falchion, Iron_Spear, Ritual_Spear, True_Seraphs_Spear, Rifle_Spear, Mace, Sacred_Hammer, Rosens_Peacemaker, Iron_Blunderbuss, Avenger, Zweihander, Darkalloy_Greatsword, RailBlade, Battleaxe, Nightaxe, Alloyed_Canorian_Axe, Enforcers_Axe, Steel_Maul, Great_Maul, Petras_Anchor, Hivelords_Hubris ]
+        wlist = [Avenger, Zweihander, Darkalloy_Greatsword, RailBlade, Battleaxe, Nightaxe, Alloyed_Canorian_Axe, Enforcers_Axe, Steel_Maul, Great_Maul, Petras_Anchor, Hivelords_Hubris ]
         smash = r.choice(wlist)
-        smash + 5
-        self.attack_1 = smash
+        self.attack_1 = smash - 8
         string = "Health: "+ str(self.health) + " Attack 1: "+ str([self.attack_1]) + " Attack 2: "+ str(self.attack_2[0]) + "-"+ str(self.attack_2[1])+  " Heal:"+ str(self.heal[0]) + "-" + str(self.heal[0])
         return string
 
     def is_dead(self):
         return self.health <= 0
 
-knight = Warrior(100, 0, (10,20), (15,15))
-mage   = Warrior(75,  0, (15,40), (10,10))
-tank = Warrior(150, 0,  (5,21), (20,20))
+knight = Warrior(100, 0, (10,15), (15,15))
+mage   = Warrior(75,  0, (15,50), (10,10))
+tank = Warrior(150, 0,  (5,21), (25,25))
 
 while True:
     player_name = input("What is your character's name? ")
@@ -94,7 +91,7 @@ def difficulty(health_max,level):
         return ai
     else:
         ai.health = health_max + 25 * round(0.5 * level + 0.5)
-        ai.attack_1 += 20 * round(0.5 * level + 0.5)
+        ai.attack_1 += 9 * round(0.5 * level + 0.5)
         ai.attack_2 += (10 * round(0.5 * level + 0.5),5 * round(0.5 * level + 0.5))
         ai.heal += (10 * round(0.5 * level + 0.5),5 * round(0.5 * level + 0.5))
         return ai
@@ -187,7 +184,7 @@ while True:
                 print("CRIT!!!")
             print("Your opponent did ",ai_damage," damage!")
         elif ai_move == 4:
-            ai_heal = r.randint(ai.heal[0],ai.heal[1])
+            ai_heal = r.randint(ai.heal[1],ai.heal[1])
             if ai.health + ai_heal > ai_heal_max:
                 ai.health = ai_heal_max
             if ai.health < 0:
@@ -214,19 +211,19 @@ while True:
             break
 
     # Finishing Game, Checking/Updating High Score
-    if player_class.health<=0:
+    if player_class.health<=1:
         print("L + Bozo + ratio")
-        if points <= 30:
+        if points >= 300:
             print("E Rank")
-        if points <= 50:
+        if points >= 600:
             print("D Rank")
-        if points <= 70:
+        if points >= 900:
             print("C Rank")
-        if points <= 90:
+        if points >= 1200:
             print("B Rank")
-        if points <= 100:
+        if points >= 1500:
             print("A Rank")
-        if points > 101:
+        if points >= 2000:
             print("S Rank")
 
         if points < 0:
