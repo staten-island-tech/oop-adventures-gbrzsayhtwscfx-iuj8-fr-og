@@ -36,7 +36,7 @@ class Warrior:
         return self.health <= 0
 
 knight = Warrior(100, 0, (10,15), (15,15))
-mage   = Warrior(75,  0, (15,50), (10,10))
+mage   = Warrior(75,  0, (20,50), (10,10))
 tank = Warrior(150, 0,  (5,21), (25,25))
 
 while True:
@@ -68,18 +68,18 @@ player_heal_max = player_class.health
 
 def level_up(player, health_max):
     while True:
-        lv_choice = input("Would you like to: 1. Increase max health by 20  2. Increase Healing Factor by 5  3. increase your damage by 5    :    ")
+        lv_choice = input("Would you like to: 1. Increase max health by 10  2. Increase Healing Factor by 3  3. increase your damage by 5    :    ")
         if lv_choice == "1":
-            health_max += 20
+            health_max += 10
             player_class.health = health_max
             return player, health_max
         elif lv_choice == "2":
-            player_class.heal += (5,5)
+            player_class.heal += (3,3)
             player_class.health = health_max
             return player_class, health_max
         elif lv_choice == "3":
-            player_class.attack_1 += 5
-            player_class.attack_2 += (5,5)
+            player_class.attack_1 += 3
+            player_class.attack_2 += (3,3)
             player_class.health = health_max
             return player, health_max
         else:
@@ -92,7 +92,7 @@ def difficulty(health_max,level):
     else:
         ai.health = health_max + 25 * round(0.5 * level + 0.5)
         ai.attack_1 += 9 * round(0.5 * level + 0.5)
-        ai.attack_2 += (10 * round(0.5 * level + 0.5),5 * round(0.5 * level + 0.5))
+        ai.attack_2 += (9 * round(0.5 * level + 0.5),5 * round(0.5 * level + 0.5))
         ai.heal += (10 * round(0.5 * level + 0.5),5 * round(0.5 * level + 0.5))
         return ai
 
@@ -213,17 +213,17 @@ while True:
     # Finishing Game, Checking/Updating High Score
     if player_class.health<=1:
         print("L + Bozo + ratio")
-        if points >= 300:
+        if points >= 1000:
             print("E Rank")
-        if points >= 600:
-            print("D Rank")
-        if points >= 900:
-            print("C Rank")
-        if points >= 1200:
-            print("B Rank")
-        if points >= 1500:
-            print("A Rank")
         if points >= 2000:
+            print("D Rank")
+        if points >= 3000:
+            print("C Rank")
+        if points >= 4000:
+            print("B Rank")
+        if points >= 5000:
+            print("A Rank")
+        if points >= 7000:
             print("S Rank")
 
         if points < 0:
