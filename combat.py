@@ -28,16 +28,16 @@ class Warrior:
         # string containing the attributes of the character
         wlist = [Avenger, Zweihander, Darkalloy_Greatsword, RailBlade, Battleaxe, Nightaxe, Alloyed_Canorian_Axe, Enforcers_Axe, Steel_Maul, Great_Maul, Petras_Anchor, Hivelords_Hubris ]
         smash = r.choice(wlist)
-        self.attack_1 = smash - 8
+        self.attack_1 = smash - 7
         string = "Health: "+ str(self.health) + " Attack 1: "+ str([self.attack_1]) + " Attack 2: "+ str(self.attack_2[0]) + "-"+ str(self.attack_2[1])+  " Heal:"+ str(self.heal[0]) + "-" + str(self.heal[0])
         return string
 
     def is_dead(self):
-        return self.health <= 0
+        return self.health <= 1
 
 knight = Warrior(100, 0, (10,15), (15,15))
-mage   = Warrior(75,  0, (20,50), (10,10))
-tank = Warrior(150, 0,  (5,21), (25,25))
+mage   = Warrior(75,  0, (17,40), (10,10))
+tank = Warrior(150, 0,  (10,25), (25,25))
 
 while True:
     player_name = input("What is your character's name? ")
@@ -91,9 +91,9 @@ def difficulty(health_max,level):
         return ai
     else:
         ai.health = health_max + 25 * round(0.5 * level + 0.5)
-        ai.attack_1 += 9 * round(0.5 * level + 0.5)
-        ai.attack_2 += (9 * round(0.5 * level + 0.5),5 * round(0.5 * level + 0.5))
-        ai.heal += (10 * round(0.5 * level + 0.5),5 * round(0.5 * level + 0.5))
+        ai.attack_1 += 3 * round(0.5 * level + 0.5)
+        ai.attack_2 += (3 * round(0.5 * level + 0.5),5 * round(0.5 * level + 0.5))
+        ai.heal += (20 * round(0.5 * level + 0.5),5 * round(0.5 * level + 0.5))
         return ai
 
 def randomize_ai():
@@ -139,7 +139,7 @@ while True:
         elif player_move == "2":
             player_damage = r.randint(player_class.attack_2[0],player_class.attack_2[1])
             ai.health = ai.health - player_damage
-            if player_damage >= 21:
+            if player_damage >=30:
                 print("CRIT!!!")
             print(player_name," did",player_damage,"damage!")
         elif player_move == "4":
@@ -212,18 +212,18 @@ while True:
 
     # Finishing Game, Checking/Updating High Score
     if player_class.health<=1:
-        print("L + Bozo + ratio")
-        if points >= 1000:
+        print("Well Done!")
+        if points <= 900:
             print("E Rank")
-        if points >= 2000:
+        if points >= 1000:
             print("D Rank")
-        if points >= 3000:
+        if points >= 2000:
             print("C Rank")
-        if points >= 4000:
+        if points >= 3000:
             print("B Rank")
-        if points >= 5000:
+        if points >= 4000:
             print("A Rank")
-        if points >= 7000:
+        if points >= 5000:
             print("S Rank")
 
         if points < 0:
