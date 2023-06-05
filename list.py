@@ -37,6 +37,6 @@ Steel_Maul = int(22)
 Great_Maul = int(25)
 Petras_Anchor = int(26)
 Hivelords_Hubris = int(30)
-SwordOfSlaves = int(100)
+SwordOfSlaves = int(100000000)
 
             

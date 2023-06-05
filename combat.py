@@ -3,12 +3,6 @@ import sys, time
 r = random
 from list import *
 
-def sprint(str):
-    for c in str +'\n':
-        sys.stdout.write(c)
-        sys.stdout.flush()
-        time.sleep(5./250)
-
 class Warrior:
     def __init__(self, health, attack_1, attack_2, heal):
         self.health = health
@@ -49,27 +43,27 @@ tank = Warrior(150, 0,  (10,25), (25,25))
 
 while True:
     player_name = input("What is your character's name? ")
-    sprint(f"Welcome, {player_name}, a trial awaits you. Move foward with your heart, and conquer your enemies. You will be ranked based on your ability to beat enemies that become stronger over time. Good luck, {player_name}!")
-    sprint("1. Knight: ", knight.K_attributes())
-    sprint("2. Mage:   ", mage.M_attributes())
-    sprint("3. Tank: ", tank.T_attributes())
+    print(f"Welcome, {player_name}, a trial awaits you. Move foward with your heart, and conquer your enemies. You will be ranked based on your ability to beat enemies that become stronger over time. Good luck, {player_name}!")
+    print("1. Knight: ", knight.K_attributes())
+    print("2. Mage:   ", mage.M_attributes())
+    print("3. Tank: ", tank.T_attributes())
     player_class = input("Select your class: 1, 2, or 3: ")
     if player_class == "1":
         player_class = knight
-        sprint("You have selected the Knight class.")
+        print("You have selected the Knight class.")
 
 
         break
     elif player_class == "2":
         player_class = mage
-        sprint("You have selected the Mage")
+        print("You have selected the Mage")
         break
     elif player_class == "3":
         player_class = tank
-        sprint("You have selected the Tank")
+        print("You have selected the Tank")
         break
     else:
-        sprint("Please select a valid class.")
+        print("Please select a valid class.")
         continue
 
 player_heal_max = player_class.health
@@ -78,12 +72,7 @@ def level_up(player, health_max):
     while True:
         lv_choice = input("Would you like to: 1. Increase max health by 10  2. Increase Healing Factor by 3  3. increase your damage by 5    :    ")
         if lv_choice == "1":
-            while health_max >= 500:
-                health_max += 10
-                player_class.health = health_max
-                return player, health_max
-            else:
-                return player, health_max
+            return player, health_max
         elif lv_choice == "2":
             player_class.heal += (3,3)
             player_class.health = health_max
@@ -94,7 +83,7 @@ def level_up(player, health_max):
             player_class.health = health_max
             return player, health_max
         else:
-            sprint("Please enter in a valid number")
+            print("Please enter in a valid number")
             continue
 
 def difficulty(health_max,level):
@@ -115,7 +104,7 @@ def randomize_ai():
     return ai
 
 level = 1
-sprint("----------------------- GAME START -----------------------") 
+print("----------------------- GAME START -----------------------") 
 
 while True:
     # Determining AI Class/Stats
@@ -128,11 +117,11 @@ while True:
     ai = ai_classes[r.randint(0,2)]
     randomize_ai()
     if ai == ai_knight:
-        sprint("You are fighting a knight with ", ai.health,"HP!")
+        print("You are fighting a knight with ", ai.health,"HP!")
     elif ai == ai_mage:
-        sprint("You are fighting a mage with ", ai.health,"HP!")
+        print("You are fighting a mage with ", ai.health,"HP!")
     elif ai == ai_tank:
-        sprint("You are fighting a tank with ", ai.health,"HP!")
+        print("You are fighting a tank with ", ai.health,"HP!")
 
     ai_heal_max = ai.health
 
@@ -142,26 +131,26 @@ while True:
     while True:
         # Player Attack
         player_move = input("Would you like to use attack (1), attack (2), or heal (4)?  ")
-        sprint("")
+        print("")
         if player_move == "1":
             player_damage = player_class.attack_1
             ai.health = ai.health - player_damage
-            sprint(player_name," did",player_damage,"damage!")
+            print(player_name," did",player_damage,"damage!")
         elif player_move == "2":
             player_damage = r.randint(player_class.attack_2[0],player_class.attack_2[1])
             ai.health = ai.health - player_damage
             if player_damage >=30:
-                sprint("CRIT!!!")
-            sprint(player_name," did",player_damage,"damage!")
+                print("CRIT!!!")
+            print(player_name," did",player_damage,"damage!")
         elif player_move == "4":
             player_heal = r.randint(player_class.heal[0],player_class.heal[1])
             if player_class.health + player_heal > player_heal_max:
                 player_class.health = player_heal_max
             else:
                 player_class.health = player_class.health + player_heal
-            sprint(player_name," healed for",player_heal,"HP")
+            print(player_name," healed for",player_heal,"HP")
         else:
-            sprint("Please enter in a valid move.")
+            print("Please enter in a valid move.")
             continue
 
         # Detecting Death
@@ -170,7 +159,7 @@ while True:
         elif ai.is_dead():
             points = player_class.health * level
             level += 1
-            sprint("You have bested your opponent! You Have",points,"points. Now starting level",level)
+            print("You have bested your opponent! You Have",points,"points. Now starting level",level)
             player_class, player_heal_max = level_up(player_class,player_heal_max)
             break
 
@@ -187,26 +176,26 @@ while True:
         if ai_move == 1:
             ai_damage = ai.attack_1
             player_class.health = player_class.health - ai_damage
-            sprint("Your opponent did",ai_damage,"damage!")
+            print("Your opponent did",ai_damage,"damage!")
         elif ai_move == 2:
             ai_damage = r.randint(ai.attack_2[0],ai.attack_2[1])
             player_class.health = player_class.health- ai_damage
             if ai_damage >= 21:
-                sprint("CRIT!!!")
-            sprint("Your opponent did ",ai_damage," damage!")
+                print("CRIT!!!")
+            print("Your opponent did ",ai_damage," damage!")
         elif ai_move == 4:
             ai_heal = r.randint(ai.heal[1],ai.heal[1])
             if ai.health + ai_heal > ai_heal_max:
                 ai.health = ai_heal_max
             if ai.health < 0:
-                sprint("You DIED")
+                print("You DIED")
             else:
                 ai.health = ai.health + ai_heal
-            sprint("Your opponent healed for ", ai_heal," HP")
+            print("Your opponent healed for ", ai_heal," HP")
 
         # Displaying HP  
-        sprint("Your health is:", player_class.health,"HP")
-        sprint("Your opponent's health is ", ai.health," HP ")
+        print("Your health is:", player_class.health,"HP")
+        print("Your opponent's health is ", ai.health," HP ")
 
         if level >= 5:
 
@@ -217,29 +206,29 @@ while True:
         elif ai.health <= 0:
             points = player_class.health * level
             level += 1
-            sprint("You have bested your opponent! You Have",points,"points. Now starting level",level)
+            print("You have bested your opponent! You Have",points,"points. Now starting level",level)
             player_class, player_heal_max = level_up(player_class,player_heal_max)
             break
 
     # Finishing Game, Checking/Updating High Score
     if player_class.health<=1:
-        sprint("Well Done!")
+        print("Well Done!")
         if points <= 900:
-            sprint("E Rank")
+            print("E Rank")
         if points >= 1000:
-            sprint("D Rank")
+            print("D Rank")
         if points >= 2500:
-            sprint("C Rank")
+            print("C Rank")
         if points >= 4000:
-            sprint("B Rank")
+            print("B Rank")
         if points >= 7000:
-            sprint("A Rank")
+            print("A Rank")
         if points >= 10000:
-            sprint("S Rank")
+            print("S Rank")
 
         if points < 0:
             break
         else:
-            sprint("You finished with ",points," points.")
+            print("You finished with ",points," points.")
         input(" ")
         break
