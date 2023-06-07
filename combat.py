@@ -70,16 +70,20 @@ player_heal_max = player_class.health
 
 def level_up(player, health_max):
     while True:
-        lv_choice = input("Would you like to: 1. Increase max health by 10  2. Increase Healing Factor by 3  3. increase your damage by 5    :    ")
-        if lv_choice == "1":
+        lv_choice = input("""Would you like to: 
+    1. Increase max health by 10 (8) 
+    2. Increase Healing Factor by 3 (9) 
+    3. increase your damage by 5 (0)  :    """)
+        if lv_choice == "8":
+            health_max += 10
             return player, health_max
-        elif lv_choice == "2":
+        elif lv_choice == "9":
             player_class.heal += (3,3)
             player_class.health = health_max
             return player_class, health_max
-        elif lv_choice == "3":
-            player_class.attack_1 += 3
-            player_class.attack_2 += (3,3)
+        elif lv_choice == "0":
+            player_class.attack_1 += 5
+            player_class.attack_2 += (5,5)
             player_class.health = health_max
             return player, health_max
         else:
@@ -107,7 +111,7 @@ level = 1
 print("----------------------- GAME START -----------------------") 
 
 while True:
-    # Determining AI Class/Stats
+    # AI Class/Stats
     ai_knight = Warrior(100, 20, (5,15), (5,10))
     ai_mage   = Warrior(75,  10, (10,40), (10,10))
     ai_tank = Warrior(150, 15,  (15,20), (10,5))
@@ -127,7 +131,7 @@ while True:
 
     ai = difficulty(ai_heal_max, level)
 
-    # Gameplay Loop
+    # Game
     while True:
         # Player Attack
         player_move = input("Would you like to use attack (1), attack (2), or heal (4)?  ")
@@ -171,8 +175,8 @@ while True:
         elif ai.health == ai_heal_max:
             ai_move = r.randint(1,3)
         else:
-            ai_move = r.randint(1,4)
-
+            ai_move = r.randint(1,3)
+        # AI Attack
         if ai_move == 1:
             ai_damage = ai.attack_1
             player_class.health = player_class.health - ai_damage
@@ -183,7 +187,7 @@ while True:
             if ai_damage >= 21:
                 print("CRIT!!!")
             print("Your opponent did ",ai_damage," damage!")
-        elif ai_move == 4:
+        elif ai_move == 3:
             ai_heal = r.randint(ai.heal[1],ai.heal[1])
             if ai.health + ai_heal > ai_heal_max:
                 ai.health = ai_heal_max
@@ -210,9 +214,11 @@ while True:
             player_class, player_heal_max = level_up(player_class,player_heal_max)
             break
 
-    # Finishing Game, Checking/Updating High Score
+    # Finishing Game, Giving Ranks
     if player_class.health<=1:
-        print("Well Done!")
+        
+        print("----------------------- GAME END -----------------------")
+        print("You finished with ",points," points.")
         if points <= 900:
             print("E Rank")
         if points >= 1000:
@@ -229,6 +235,5 @@ while True:
         if points < 0:
             break
         else:
-            print("You finished with ",points," points.")
-        input(" ")
+            print("     -    ")
         break
