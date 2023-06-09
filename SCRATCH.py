@@ -35,10 +35,10 @@ class Weapon(Player):
             Lweapon = input("Dagger, Rapier, or Fist? ").capitalize()
             if Lweapon == "Rapier":
                 chance_ = random.choice(self.Chance)
-                if chance_ == 1:
+                if chance_ == 1 or 2 or 3 or 4:
                     self.Stats.append('Ironstinger')
                     break
-                if chance_ == 5:
+                if chance_ == 5 or 6 or 7:
                     self.Stats.append('Aprentice Rapier')
                     break
                 if chance_ == 8 or 9:
@@ -49,6 +49,8 @@ class Weapon(Player):
                     break
             if weapon_ == "Medium" and "Heavy":
                 break
+            else: 
+                print("nigger")
 
 
 
